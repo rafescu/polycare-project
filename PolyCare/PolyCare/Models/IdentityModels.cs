@@ -29,5 +29,6 @@ namespace PolyCare.Models
         {
             return new ApplicationDbContext();
         }
+        public virtual DbSet<Pacientes> Pacientes { get; set; }
     }
 }

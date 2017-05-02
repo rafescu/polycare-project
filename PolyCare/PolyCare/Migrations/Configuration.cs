@@ -5,14 +5,14 @@ namespace PolyCare.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<PolyCare.Models.MedicosDB>
+    internal sealed class Configuration : DbMigrationsConfiguration<PolyCare.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(PolyCare.Models.MedicosDB context)
+        protected override void Seed(PolyCare.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
