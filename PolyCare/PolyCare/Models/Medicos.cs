@@ -16,13 +16,6 @@ namespace PolyCare.Models {
         [Key]
         public int MedicoID { get; set; }
 
-        public int CodMedico { get; set; }
-
-        public string Username { get; set; }
-
-        public string Password { get; set; }
-
-
         [Required]
         [StringLength(30)]
         public string Nome { get; set; }
@@ -35,6 +28,11 @@ namespace PolyCare.Models {
         [ForeignKey("Especialidade")]
         public int EspecialidadeFK { get; set; }
         public virtual Especialidades Especialidade { get; set; }
+        
+
+
+
+
 
         [StringLength(9)]
         public string NIF { get; set; }

@@ -12,13 +12,7 @@ namespace PolyCare.Models {
         }
 
         [Key]
-        public int ID { get; set; }
-
-        public int CodPaciente { get; set; }
-
-        public string Username { get; set; }
-
-        public string Password { get; set; }
+        public int PacienteID { get; set; }
 
         public string Nome { get; set; }
 
@@ -29,6 +23,8 @@ namespace PolyCare.Models {
         public string Foto { get; set; }
 
         public string Telemovel { get; set; }
+
+        public string NIF { get; set; }
 
         // um PACIENTE tem uma coleção de Marcacoes
         public virtual ICollection<Marcacoes> Marcacoes { get; set; }
