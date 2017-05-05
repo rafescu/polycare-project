@@ -9,7 +9,7 @@ namespace PolyCare.Models {
     public class Marcacoes {
         [Key]
         public int MarcacaoID { get; set; }
-
+        [Required]
         public int CodMarcacao { get; set; }
 
         [Column(TypeName = "date")] //só regista 'datas', não 'horas'

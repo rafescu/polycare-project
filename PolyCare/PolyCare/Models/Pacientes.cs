@@ -14,16 +14,20 @@ namespace PolyCare.Models {
         [Key]
         public int PacienteID { get; set; }
 
+        [Required]
+        [StringLength(30)]
         public string Nome { get; set; }
-
+        [Required]
         public DateTime DataNascimento { get; set; }
-
+        
         public string Sexo { get; set; }
-
+        
         public string Foto { get; set; }
-
+        [Required]
+        [StringLength(13)]
         public string Telemovel { get; set; }
-
+        [Required]
+        [StringLength(9)]
         public string NIF { get; set; }
 
         // um PACIENTE tem uma coleção de Marcacoes

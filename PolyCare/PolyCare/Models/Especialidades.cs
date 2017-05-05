@@ -14,6 +14,8 @@ namespace PolyCare.Models {
         [Key]
         public int EspecialidadeID { get; set; }
 
+        [Required]
+        [StringLength(55)]
         public string Designacao { get; set; }
 
         // uma ESPECIALIDADE tem uma coleção de Medicos

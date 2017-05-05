@@ -29,11 +29,7 @@ namespace PolyCare.Models {
         public int EspecialidadeFK { get; set; }
         public virtual Especialidades Especialidade { get; set; }
         
-
-
-
-
-
+        [Required]
         [StringLength(9)]
         public string NIF { get; set; }
 
