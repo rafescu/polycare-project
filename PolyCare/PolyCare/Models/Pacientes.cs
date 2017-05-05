@@ -23,9 +23,7 @@ namespace PolyCare.Models {
         public string Sexo { get; set; }
         
         public string Foto { get; set; }
-        [Required]
-        [StringLength(13)]
-        public string Telemovel { get; set; }
+ 
         [Required]
         [StringLength(9)]
         public string NIF { get; set; }

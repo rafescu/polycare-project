@@ -31,16 +31,16 @@ namespace PolyCare.Migrations
             // ############################################################################################
             // adiciona PACIENTES
             var pacientes = new List<Pacientes> {
-   new Pacientes  {PacienteID=1, Nome = "Pedro Gonkas", DataNascimento=new DateTime(2015,2,8), Sexo="M", Foto="avatar.png", Telemovel="123456789", NIF="123456789"},
-   new Pacientes  {PacienteID=2, Nome = "Maria Leal", DataNascimento=new DateTime(2015,2,8), Sexo="F", Foto="avatar.png", Telemovel="123456789", NIF="123456789"},
-   new Pacientes  {PacienteID=3, Nome = "Uri Kol", DataNascimento=new DateTime(2015,2,8), Sexo="M", Foto="avatar.png", Telemovel="123456789", NIF="123456789"},
-   new Pacientes  {PacienteID=4, Nome = "Keith Num", DataNascimento=new DateTime(2015,2,8), Sexo="M", Foto="avatar.png", Telemovel="123456789", NIF="123456789"},
-   new Pacientes  {PacienteID=5, Nome = "Francisco Alves", DataNascimento=new DateTime(2015,2,8), Sexo="M", Foto="avatar.png", Telemovel="123456789", NIF="123456789"},
-   new Pacientes  {PacienteID=6, Nome = "Nuno Pedro", DataNascimento=new DateTime(2015,2,8), Sexo="M", Foto="avatar.png", Telemovel="123456789", NIF="123456789"},
-   new Pacientes  {PacienteID=7, Nome = "Rafael Hugo", DataNascimento=new DateTime(2015,2,8), Sexo="M", Foto="avatar.png", Telemovel="123456789", NIF="123456789"},
-   new Pacientes  {PacienteID=8, Nome = "Joana Maira", DataNascimento=new DateTime(2015,2,8), Sexo="F", Foto="avatar.png", Telemovel="123456789", NIF="123456789"},
-   new Pacientes  {PacienteID=9, Nome = "Francisca Hugo", DataNascimento=new DateTime(2015,2,8), Sexo="F", Foto="avatar.png", Telemovel="123456789", NIF="123456789"},
-   new Pacientes  {PacienteID=10, Nome = "David Tudora", DataNascimento=new DateTime(2015,2,8), Sexo="M", Foto="avatar.png", Telemovel="123456789", NIF="123456789"}
+   new Pacientes  {PacienteID=1, Nome = "Pedro Gonkas", DataNascimento=new DateTime(2015,2,8), Sexo="M", Foto="avatar.png", NIF="123456789"},
+   new Pacientes  {PacienteID=2, Nome = "Maria Leal", DataNascimento=new DateTime(2015,2,8), Sexo="F", Foto="avatar.png", NIF="123456789"},
+   new Pacientes  {PacienteID=3, Nome = "Uri Kol", DataNascimento=new DateTime(2015,2,8), Sexo="M", Foto="avatar.png", NIF="123456789"},
+   new Pacientes  {PacienteID=4, Nome = "Keith Num", DataNascimento=new DateTime(2015,2,8), Sexo="M", Foto="avatar.png", NIF="123456789"},
+   new Pacientes  {PacienteID=5, Nome = "Francisco Alves", DataNascimento=new DateTime(2015,2,8), Sexo="M", Foto="avatar.png", NIF="123456789"},
+   new Pacientes  {PacienteID=6, Nome = "Nuno Pedro", DataNascimento=new DateTime(2015,2,8), Sexo="M", Foto="avatar.png", NIF="123456789"},
+   new Pacientes  {PacienteID=7, Nome = "Rafael Hugo", DataNascimento=new DateTime(2015,2,8), Sexo="M", Foto="avatar.png", NIF="123456789"},
+   new Pacientes  {PacienteID=8, Nome = "Joana Maira", DataNascimento=new DateTime(2015,2,8), Sexo="F", Foto="avatar.png", NIF="123456789"},
+   new Pacientes  {PacienteID=9, Nome = "Francisca Hugo", DataNascimento=new DateTime(2015,2,8), Sexo="F", Foto="avatar.png", NIF="123456789"},
+   new Pacientes  {PacienteID=10, Nome = "David Tudora", DataNascimento=new DateTime(2015,2,8), Sexo="M", Foto="avatar.png", NIF="123456789"}
 
 };
 
