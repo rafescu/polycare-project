@@ -12,7 +12,7 @@ namespace PolyCare.Models {
         }
 
         [Key]
-        public int AtendimentoID { get; set; }
+        public int AtendimentoID { get; set; } // PK, por exigência da Entity Framework
 
         [Column(TypeName = "date")] //só regista 'datas', não 'horas'
         public DateTime DataAtivacao { get; set; }
