@@ -1,5 +1,4 @@
-namespace PolyCare.Migrations
-{
+namespace PolyCare.Migrations {
     using PolyCare.Models;
     using System;
     using System.Collections.Generic;
@@ -7,15 +6,12 @@ namespace PolyCare.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<PolyCare.Models.ApplicationDbContext>
-    {
-        public Configuration()
-        {
+    internal sealed class Configuration : DbMigrationsConfiguration<PolyCare.Models.ApplicationDbContext> {
+        public Configuration() {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(PolyCare.Models.ApplicationDbContext context)
-        {
+        protected override void Seed(PolyCare.Models.ApplicationDbContext context) {
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
@@ -86,7 +82,64 @@ namespace PolyCare.Migrations
             medicos.ForEach(xx => context.Medicos.AddOrUpdate(x => x.Nome, xx));
             context.SaveChanges();
 
-            
+
+            // ############################################################################################
+            // adiciona Marcacoes
+            var marcacoes = new List<Marcacoes> {
+   new Marcacoes  {MarcacaoID=1, CodMarcacao = 1234, DataMarcacoes=new DateTime(2013,1,2), MedicoFK=2, PacienteFK=8},
+   new Marcacoes  {MarcacaoID=2, CodMarcacao = 2222, DataMarcacoes=new DateTime(2014,2,2), MedicoFK=1, PacienteFK=9},
+   new Marcacoes  {MarcacaoID=3, CodMarcacao = 3333, DataMarcacoes=new DateTime(2014,3,1), MedicoFK=8, PacienteFK=9},
+   new Marcacoes  {MarcacaoID=4, CodMarcacao = 1122, DataMarcacoes=new DateTime(2015,3,2), MedicoFK=9, PacienteFK=8},
+   new Marcacoes  {MarcacaoID=5, CodMarcacao = 1233, DataMarcacoes=new DateTime(2015,4,2), MedicoFK=8, PacienteFK=4},
+   new Marcacoes  {MarcacaoID=6, CodMarcacao = 4444, DataMarcacoes=new DateTime(2015,6,11), MedicoFK=3, PacienteFK=3},
+   new Marcacoes  {MarcacaoID=7, CodMarcacao = 5555, DataMarcacoes=new DateTime(2016,7,12), MedicoFK=4, PacienteFK=3},
+   new Marcacoes  {MarcacaoID=8, CodMarcacao = 3323, DataMarcacoes=new DateTime(2016,8,14), MedicoFK=5, PacienteFK=2},
+   new Marcacoes  {MarcacaoID=9, CodMarcacao = 3457, DataMarcacoes=new DateTime(2016,9,21), MedicoFK=5, PacienteFK=1},
+   new Marcacoes  {MarcacaoID=10, CodMarcacao = 8968, DataMarcacoes=new DateTime(2016,10,22), MedicoFK=6, PacienteFK=5}
+};
+
+            marcacoes.ForEach(yy => context.Marcacoes.AddOrUpdate(y => y.MarcacaoID, yy));
+            context.SaveChanges();
+
+
+            // ############################################################################################
+            // adiciona Atendimentos
+            var atendimentos = new List<Atendimentos> {
+   new Atendimentos  {AtendimentoID=1, DataAtivacao = new DateTime(2013,1,2), DiaSemana="segunda", Inicio=new DateTime(2013,1,3), Fim=new DateTime(2013,1,3)},
+   new Atendimentos  {AtendimentoID=2, DataAtivacao = new DateTime(2013,1,3), DiaSemana="terca", Inicio=new DateTime(2013,1,4), Fim=new DateTime(2013,1,4)},
+   new Atendimentos  {AtendimentoID=3, DataAtivacao = new DateTime(2013,1,4), DiaSemana="quarta", Inicio=new DateTime(2013,1,5), Fim=new DateTime(2013,1,5)},
+   new Atendimentos  {AtendimentoID=4, DataAtivacao = new DateTime(2013,1,5), DiaSemana="quinta", Inicio=new DateTime(2013,1,6), Fim=new DateTime(2013,1,6)},
+   new Atendimentos  {AtendimentoID=5, DataAtivacao = new DateTime(2013,1,6), DiaSemana="sexta", Inicio=new DateTime(2013,1,7), Fim=new DateTime(2013,1,7)},
+   new Atendimentos  {AtendimentoID=6, DataAtivacao = new DateTime(2013,1,7), DiaSemana="sábado", Inicio=new DateTime(2013,1,8), Fim=new DateTime(2013,1,8)},
+   new Atendimentos  {AtendimentoID=7, DataAtivacao = new DateTime(2013,1,8), DiaSemana="domingo", Inicio=new DateTime(2013,1,9), Fim=new DateTime(2013,1,9)},
+   new Atendimentos  {AtendimentoID=8, DataAtivacao = new DateTime(2013,1,9), DiaSemana="segunda", Inicio=new DateTime(2013,1,10), Fim=new DateTime(2013,1,10)},
+   new Atendimentos  {AtendimentoID=9, DataAtivacao = new DateTime(2013,1,10), DiaSemana="terca", Inicio=new DateTime(2013,1,11), Fim=new DateTime(2013,1,11)},
+   new Atendimentos  {AtendimentoID=10, DataAtivacao = new DateTime(2013,1,11), DiaSemana="quarta", Inicio=new DateTime(2013,1,12), Fim=new DateTime(2013,1,12)}
+};
+
+            atendimentos.ForEach(zz => context.Atendimentos.AddOrUpdate(z => z.AtendimentoID, zz));
+            context.SaveChanges();
+
+
+            // ############################################################################################
+            // adiciona MedicoAtendimentos
+            var medicoAten = new List<MedicoAtendimentos> {
+   new MedicoAtendimentos  {MedicoAtendimentosID=1, MedicoFK = 3, AtendimentoFK=1},
+   new MedicoAtendimentos  {MedicoAtendimentosID=2, MedicoFK = 4, AtendimentoFK=2},
+   new MedicoAtendimentos  {MedicoAtendimentosID=3, MedicoFK = 3, AtendimentoFK=3},
+   new MedicoAtendimentos  {MedicoAtendimentosID=4, MedicoFK = 2, AtendimentoFK=4},
+   new MedicoAtendimentos  {MedicoAtendimentosID=5, MedicoFK = 5, AtendimentoFK=5},
+   new MedicoAtendimentos  {MedicoAtendimentosID=6, MedicoFK = 8, AtendimentoFK=6},
+   new MedicoAtendimentos  {MedicoAtendimentosID=7, MedicoFK = 8, AtendimentoFK=7},
+   new MedicoAtendimentos  {MedicoAtendimentosID=8, MedicoFK = 7, AtendimentoFK=8},
+   new MedicoAtendimentos  {MedicoAtendimentosID=9, MedicoFK = 7, AtendimentoFK=9},
+   new MedicoAtendimentos  {MedicoAtendimentosID=10, MedicoFK = 1, AtendimentoFK=10}
+};
+
+            medicoAten.ForEach(yy => context.MedicoAtendimentos.AddOrUpdate(y => y.MedicoAtendimentosID, yy));
+            context.SaveChanges();
+
+
 
 
         }

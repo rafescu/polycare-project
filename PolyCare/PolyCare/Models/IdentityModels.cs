@@ -36,8 +36,10 @@ namespace PolyCare.Models
         public virtual DbSet<Marcacoes> Marcacoes { get; set; }
         public virtual DbSet<Atendimentos> Atendimentos { get; set; }
         public virtual DbSet<MedicoEspecialidades> MedicoEspecialidades { get; set; }
+        public virtual DbSet<MedicoAtendimentos> MedicoAtendimentos { get; set; }
 
-       protected override void OnModelCreating(DbModelBuilder modelBuilder) {
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();  // impede a EF de 'pluralizar' os nomes das tabelas
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();  // força a que a chave forasteira não tenha a propriedade 'on delete cascade'
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();  // força a que a chave forasteira não tenha a propriedade 'on delete cascade'

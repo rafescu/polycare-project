@@ -14,7 +14,7 @@ namespace PolyCare.Models {
         }
 
         [Key]
-        public int MedicoID { get; set; }
+        public int MedicoID { get; set; } // PK, por exigência da Entity Framework
 
         [Required]
         [StringLength(30)]
@@ -25,6 +25,7 @@ namespace PolyCare.Models {
 
         public string Foto { get; set; }
 
+        // definição da chave forasteira (FK) que referencia a classe Especialidades
         [ForeignKey("Especialidade")]
         public int EspecialidadeFK { get; set; }
         public virtual Especialidades Especialidade { get; set; }

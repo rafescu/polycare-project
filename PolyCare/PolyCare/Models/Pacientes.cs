@@ -12,7 +12,7 @@ namespace PolyCare.Models {
         }
 
         [Key]
-        public int PacienteID { get; set; }
+        public int PacienteID { get; set; } // PK, por exigência da Entity Framework
 
         [Required]
         [StringLength(30)]

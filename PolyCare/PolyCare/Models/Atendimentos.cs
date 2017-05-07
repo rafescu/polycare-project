@@ -19,9 +19,9 @@ namespace PolyCare.Models {
 
         public string DiaSemana { get; set; }
 
-        [Column(TypeName = "date")] //só regista 'datas', não 'horas'
+        [Column(TypeName = "date")] //para alterar, quero que este atributo seja a hora do inicio e não a data
         public DateTime Inicio { get; set; }
-        [Column(TypeName = "date")] //só regista 'datas', não 'horas'
+        [Column(TypeName = "date")] //para alterar, quero que este atributo seja a hora do fim e não a data
         public DateTime Fim { get; set; }
 
 
