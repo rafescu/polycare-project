@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PolyCare.Models.Marcacoes>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Medico.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paciente.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodMarcacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataMarcacoes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medico.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paciente.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodMarcacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataMarcacoes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MarcacaoID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MarcacaoID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MarcacaoID })
+        </td>
+    </tr>
+}
+
+</table>
