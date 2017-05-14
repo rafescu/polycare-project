@@ -134,3 +134,6 @@ C:\Users\Rafael Escudeiro\Source\Repos\polycare-project\PolyCare\PolyCare\bin\Mi
 C:\Users\Rafael Escudeiro\Source\Repos\polycare-project\PolyCare\PolyCare\bin\Microsoft.Extensions.Primitives.xml
 C:\Users\Rafael Escudeiro\Source\Repos\polycare-project\PolyCare\PolyCare\bin\Microsoft.VisualStudio.Web.BrowserLink.Loader.xml
 C:\Users\Rafael Escudeiro\Source\Repos\polycare-project\PolyCare\PolyCare\bin\System.Text.Encodings.Web.xml
+C:\Users\Rafael Escudeiro\Source\Repos\polycare-project\PolyCare\PolyCare\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Rafael Escudeiro\Source\Repos\polycare-project\PolyCare\PolyCare\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Rafael Escudeiro\Source\Repos\polycare-project\PolyCare\PolyCare\bin\System.Runtime.CompilerServices.Unsafe.xml
