@@ -49,7 +49,7 @@ namespace PolyCare.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "User Login (Email)")]
         [EmailAddress]
         public string Email { get; set; }
 
