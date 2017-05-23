@@ -161,6 +161,13 @@ namespace PolyCare.Migrations {
                 var role = new IdentityRole { Name = "Admin" };
                 manager.Create(role);
             }
+            //Role Funcionario
+            if (!context.Roles.Any(x => x.Name == "Funcionario")) {
+                var store = new RoleStore<IdentityRole>(context);
+                var manager = new RoleManager<IdentityRole>(store);
+                var role = new IdentityRole { Name = "Funcionario" };
+                manager.Create(role);
+            }
             //Role Medico
             if (!context.Roles.Any(x => x.Name == "Medico")) {
                 var store = new RoleStore<IdentityRole>(context);
@@ -192,13 +199,28 @@ namespace PolyCare.Migrations {
                 if (result.Succeeded == false) {
                     throw new Exception(result.Errors.First());
                 }
-
-
                 manager.AddToRole(user.Id, "Admin");
             }
 
+            //adicionar um user ao role de funcionario
+            if (!context.Users.Any(y => y.Email == "funcionario@polycare.com")) {
+                var store = new UserStore<ApplicationUser>(context);
+                var manager = new UserManager<ApplicationUser>(store);
+                var user = new ApplicationUser {
+                    UserName = "funcionario@polycare.com",
+                    Email = "funcionario@polycare.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "912345678",
+                    PhoneNumberConfirmed = true
+                };
 
-
+                IdentityResult result = manager.Create(user, "123QWEasd#");
+                if (result.Succeeded == false) {
+                    throw new Exception(result.Errors.First());
+                }
+                manager.AddToRole(user.Id, "Funcionario");
+            }
+            
         }
     }
 }
