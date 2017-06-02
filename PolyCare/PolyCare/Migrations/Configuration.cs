@@ -12,7 +12,7 @@ namespace PolyCare.Migrations {
     internal sealed class Configuration : DbMigrationsConfiguration<PolyCare.Models.ApplicationDbContext> {
         public Configuration() {
             AutomaticMigrationsEnabled = true;
-            
+
         }
 
         protected override void Seed(PolyCare.Models.ApplicationDbContext context) {
@@ -220,7 +220,7 @@ namespace PolyCare.Migrations {
                 }
                 manager.AddToRole(user.Id, "Funcionario");
             }
-            
+
         }
     }
 }
