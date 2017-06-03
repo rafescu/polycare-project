@@ -8,7 +8,7 @@ namespace PolyCare.Models {
     public class Especialidades {
 
         public Especialidades() {
-            MedicoEspecialidades = new HashSet<MedicoEspecialidades>();
+            
         }
 
         [Key]
@@ -18,7 +18,6 @@ namespace PolyCare.Models {
         [StringLength(55)]
         public string Designacao { get; set; } //nome da especialidade
 
-        // uma ESPECIALIDADE tem uma coleção de Medicos
-        public virtual ICollection<MedicoEspecialidades> MedicoEspecialidades { get; set; }
+        
     }
 }

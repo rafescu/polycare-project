@@ -136,4 +136,3 @@ C:\Users\Rafael Escudeiro\Source\Repos\polycare-project\PolyCare\PolyCare\bin\Mi
 C:\Users\Rafael Escudeiro\Source\Repos\polycare-project\PolyCare\PolyCare\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\Rafael Escudeiro\Source\Repos\polycare-project\PolyCare\PolyCare\obj\Debug\PolyCare.dll
 C:\Users\Rafael Escudeiro\Source\Repos\polycare-project\PolyCare\PolyCare\obj\Debug\PolyCare.pdb
-C:\Users\Rafael Escudeiro\Source\Repos\polycare-project\PolyCare\PolyCare\obj\Debug\PolyCare.csprojResolveAssemblyReference.cache
