@@ -9,8 +9,6 @@ namespace PolyCare.Models {
     public class Marcacoes {
         [Key]
         public int MarcacaoID { get; set; } // PK, por exigência da Entity Framework
-        [Required]
-        public int CodMarcacao { get; set; }
 
         [Column(TypeName = "date")] //só regista 'datas', não 'horas'
         public DateTime DataMarcacoes { get; set; }
