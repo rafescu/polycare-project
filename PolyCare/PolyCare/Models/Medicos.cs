@@ -10,7 +10,7 @@ namespace PolyCare.Models {
 
         public Medicos() {
             Marcacoes = new HashSet<Marcacoes>();
-            MedicoEspecialidades = new HashSet<MedicoEspecialidades>();
+            Atendimentos=new HashSet<Atendimentos>();
         }
 
         [Key]
@@ -48,6 +48,6 @@ namespace PolyCare.Models {
         public string Faculdade { get; set; }
 
         public virtual ICollection<Marcacoes> Marcacoes { get; set; }
-        public virtual ICollection<MedicoEspecialidades> MedicoEspecialidades { get; set; }
+        public virtual ICollection<Atendimentos> Atendimentos { get; set; }
     }
 }

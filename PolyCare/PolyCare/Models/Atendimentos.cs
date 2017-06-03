@@ -8,7 +8,7 @@ using System.Web;
 namespace PolyCare.Models {
     public class Atendimentos {
         public Atendimentos() {
-            MedicoAtendimentos = new HashSet<MedicoAtendimentos>();
+            
         }
 
         [Key]
@@ -25,7 +25,6 @@ namespace PolyCare.Models {
         public DateTime Fim { get; set; }
 
 
-        // um ATENDIMENTO tem uma coleção de MedicoAtendimentos
-        public virtual ICollection<MedicoAtendimentos> MedicoAtendimentos { get; set; }
+     
     }
 }

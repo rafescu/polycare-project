@@ -92,16 +92,16 @@ namespace PolyCare.Migrations {
             // ############################################################################################
             // adiciona Marcacoes
             var marcacoes = new List<Marcacoes> {
-   new Marcacoes  {MarcacaoID=1, CodMarcacao = 1234, DataMarcacoes=new DateTime(2013,1,2), MedicoFK=2, PacienteFK=8},
-   new Marcacoes  {MarcacaoID=2, CodMarcacao = 2222, DataMarcacoes=new DateTime(2014,2,2), MedicoFK=1, PacienteFK=9},
-   new Marcacoes  {MarcacaoID=3, CodMarcacao = 3333, DataMarcacoes=new DateTime(2014,3,1), MedicoFK=8, PacienteFK=9},
-   new Marcacoes  {MarcacaoID=4, CodMarcacao = 1122, DataMarcacoes=new DateTime(2015,3,2), MedicoFK=9, PacienteFK=8},
-   new Marcacoes  {MarcacaoID=5, CodMarcacao = 1233, DataMarcacoes=new DateTime(2015,4,2), MedicoFK=8, PacienteFK=4},
-   new Marcacoes  {MarcacaoID=6, CodMarcacao = 4444, DataMarcacoes=new DateTime(2015,6,11), MedicoFK=3, PacienteFK=3},
-   new Marcacoes  {MarcacaoID=7, CodMarcacao = 5555, DataMarcacoes=new DateTime(2016,7,12), MedicoFK=4, PacienteFK=3},
-   new Marcacoes  {MarcacaoID=8, CodMarcacao = 3323, DataMarcacoes=new DateTime(2016,8,14), MedicoFK=5, PacienteFK=2},
-   new Marcacoes  {MarcacaoID=9, CodMarcacao = 3457, DataMarcacoes=new DateTime(2016,9,21), MedicoFK=5, PacienteFK=1},
-   new Marcacoes  {MarcacaoID=10, CodMarcacao = 8968, DataMarcacoes=new DateTime(2016,10,22), MedicoFK=6, PacienteFK=5}
+   new Marcacoes  {MarcacaoID=1, DataMarcacoes=new DateTime(2013,1,2), MedicoFK=2, PacienteFK=8},
+   new Marcacoes  {MarcacaoID=2, DataMarcacoes=new DateTime(2014,2,2), MedicoFK=1, PacienteFK=9},
+   new Marcacoes  {MarcacaoID=3, DataMarcacoes=new DateTime(2014,3,1), MedicoFK=8, PacienteFK=9},
+   new Marcacoes  {MarcacaoID=4, DataMarcacoes=new DateTime(2015,3,2), MedicoFK=9, PacienteFK=8},
+   new Marcacoes  {MarcacaoID=5, DataMarcacoes=new DateTime(2015,4,2), MedicoFK=8, PacienteFK=4},
+   new Marcacoes  {MarcacaoID=6, DataMarcacoes=new DateTime(2015,6,11), MedicoFK=3, PacienteFK=3},
+   new Marcacoes  {MarcacaoID=7, DataMarcacoes=new DateTime(2016,7,12), MedicoFK=4, PacienteFK=3},
+   new Marcacoes  {MarcacaoID=8, DataMarcacoes=new DateTime(2016,8,14), MedicoFK=5, PacienteFK=2},
+   new Marcacoes  {MarcacaoID=9, DataMarcacoes=new DateTime(2016,9,21), MedicoFK=5, PacienteFK=1},
+   new Marcacoes  {MarcacaoID=10, DataMarcacoes=new DateTime(2016,10,22), MedicoFK=6, PacienteFK=5}
 };
 
             marcacoes.ForEach(yy => context.Marcacoes.AddOrUpdate(y => y.MarcacaoID, yy));
@@ -125,31 +125,6 @@ namespace PolyCare.Migrations {
 
             atendimentos.ForEach(zz => context.Atendimentos.AddOrUpdate(z => z.AtendimentoID, zz));
             context.SaveChanges();
-
-
-            // ############################################################################################
-            // adiciona MedicoAtendimentos
-            var medicoAten = new List<MedicoAtendimentos> {
-   new MedicoAtendimentos  {MedicoAtendimentosID=1, MedicoFK = 3, AtendimentoFK=1},
-   new MedicoAtendimentos  {MedicoAtendimentosID=2, MedicoFK = 4, AtendimentoFK=2},
-   new MedicoAtendimentos  {MedicoAtendimentosID=3, MedicoFK = 3, AtendimentoFK=3},
-   new MedicoAtendimentos  {MedicoAtendimentosID=4, MedicoFK = 2, AtendimentoFK=4},
-   new MedicoAtendimentos  {MedicoAtendimentosID=5, MedicoFK = 5, AtendimentoFK=5},
-   new MedicoAtendimentos  {MedicoAtendimentosID=6, MedicoFK = 8, AtendimentoFK=6},
-   new MedicoAtendimentos  {MedicoAtendimentosID=7, MedicoFK = 8, AtendimentoFK=7},
-   new MedicoAtendimentos  {MedicoAtendimentosID=8, MedicoFK = 7, AtendimentoFK=8},
-   new MedicoAtendimentos  {MedicoAtendimentosID=9, MedicoFK = 7, AtendimentoFK=9},
-   new MedicoAtendimentos  {MedicoAtendimentosID=10, MedicoFK = 1, AtendimentoFK=10}
-};
-
-            medicoAten.ForEach(yy => context.MedicoAtendimentos.AddOrUpdate(y => y.MedicoAtendimentosID, yy));
-            context.SaveChanges();
-
-
-
-
-
-
 
             //############################################
             //adicionar Roles
