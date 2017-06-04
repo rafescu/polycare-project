@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -10,8 +11,8 @@ namespace PolyCare.Models {
         public Pacientes() {
             Marcacoes = new HashSet<Marcacoes>();
         }
-
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)] // PK não será AutoNumber
         public int PacienteID { get; set; } // PK, por exigência da Entity Framework
 
         [Required(ErrorMessage ="O {0} é de preenchimento obrigatório.")]

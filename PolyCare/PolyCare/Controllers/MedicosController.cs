@@ -50,12 +50,33 @@ namespace PolyCare.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MedicoID,Nome,DataNascimento,Foto,EspecialidadeFK,NIF,DataEntradaClinica,NumCedulaProf,DataInscOrdem,Faculdade")] Medicos medicos)
         {
-            if (ModelState.IsValid)
-            {
-                db.Medicos.Add(medicos);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            //determinar o ID a atribuir ao novo 'medico'
+            int novoID = 0;
+            try {
+                //perguntar á BD qual o último MedicoID
+                novoID = db.Medicos.Max(d => d.MedicoID) + 1;
+            } catch (Exception) {
+                //não existe dados na BD
+                //o MAX devolve NULL
+                novoID = 1;
             }
+            medicos.MedicoID = novoID;
+            try {
+                if (ModelState.IsValid) {
+                    //adicionar um novo médico
+                    db.Medicos.Add(medicos);
+                    //guarda as modificacoes
+                    db.SaveChanges();
+                    //redireciona
+                    return RedirectToAction("Index");
+                }
+            } catch (Exception ex) {
+
+                ModelState.AddModelError("",
+                                    string.Format("Ocorreu um erro na operacão de guardar um novo Medico...")
+                                    );
+            }
+            
 
             ViewBag.EspecialidadeFK = new SelectList(db.Especialidades, "EspecialidadeID", "Designacao", medicos.EspecialidadeFK);
             return View(medicos);
