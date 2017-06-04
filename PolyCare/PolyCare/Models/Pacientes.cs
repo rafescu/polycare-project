@@ -14,18 +14,27 @@ namespace PolyCare.Models {
         [Key]
         public int PacienteID { get; set; } // PK, por exigência da Entity Framework
 
-        [Required]
-        [StringLength(30)]
+        [Required(ErrorMessage ="O {0} é de preenchimento obrigatório.")]
+        [Display(Name ="Nome do Paciente")]
+        [RegularExpression("[A-ZÁÉÍÓÚ][a-záéíóúàèìòùâêîôûãõäëïöüç']+((-| )(((da|de|do|das|dos )))?[A-ZÁÉÍÓÚ][a-záéíóúàèìòùâêîôûãõäëïöüç']+)*",ErrorMessage ="O {0} introduzido não é válido. Os nomes começam por letra maiúscula e não podem ser utilizados números.")]
         public string Nome { get; set; }
-        [Required]
-        public DateTime DataNascimento { get; set; }
-        
+
+        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
+        [Display(Name ="Data de Nascimento")]
+        [DataType(DataType.Date),DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",ApplyFormatInEditMode =true)]
+        public DateTime? DataNascimento { get; set; }
+
+
         public string Sexo { get; set; }
+
         
+
+        //falta colocar seguranca neste upload
+        //[DataType(DataType.Upload)]
         public string Foto { get; set; }
  
-        [Required]
-        [StringLength(9)]
+        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
+        [RegularExpression("[0-9]{9}", ErrorMessage ="Escreva 9 números...")]
         public string NIF { get; set; }
 
         // um PACIENTE tem uma coleção de Marcacoes
