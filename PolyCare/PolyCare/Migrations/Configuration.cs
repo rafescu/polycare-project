@@ -126,75 +126,75 @@ namespace PolyCare.Migrations {
             atendimentos.ForEach(zz => context.Atendimentos.AddOrUpdate(z => z.AtendimentoID, zz));
             context.SaveChanges();
 
-            //############################################
-            //adicionar Roles
+            ////############################################
+            ////adicionar Roles
 
-            //Role Admin
-            if (!context.Roles.Any(x => x.Name == "Admin")) {
-                var store = new RoleStore<IdentityRole>(context);
-                var manager = new RoleManager<IdentityRole>(store);
-                var role = new IdentityRole { Name = "Admin" };
-                manager.Create(role);
-            }
-            //Role Funcionario
-            if (!context.Roles.Any(x => x.Name == "Funcionario")) {
-                var store = new RoleStore<IdentityRole>(context);
-                var manager = new RoleManager<IdentityRole>(store);
-                var role = new IdentityRole { Name = "Funcionario" };
-                manager.Create(role);
-            }
-            //Role Medico
-            if (!context.Roles.Any(x => x.Name == "Medico")) {
-                var store = new RoleStore<IdentityRole>(context);
-                var manager = new RoleManager<IdentityRole>(store);
-                var role = new IdentityRole { Name = "Medico" };
-                manager.Create(role);
-            }
-            //Role Paciente
-            if (!context.Roles.Any(x => x.Name == "Paciente")) {
-                var store = new RoleStore<IdentityRole>(context);
-                var manager = new RoleManager<IdentityRole>(store);
-                var role = new IdentityRole { Name = "Paciente" };
-                manager.Create(role);
-            }
+            ////Role Admin
+            //if (!context.Roles.Any(x => x.Name == "Admin")) {
+            //    var store = new RoleStore<IdentityRole>(context);
+            //    var manager = new RoleManager<IdentityRole>(store);
+            //    var role = new IdentityRole { Name = "Admin" };
+            //    manager.Create(role);
+            //}
+            ////Role Funcionario
+            //if (!context.Roles.Any(x => x.Name == "Funcionario")) {
+            //    var store = new RoleStore<IdentityRole>(context);
+            //    var manager = new RoleManager<IdentityRole>(store);
+            //    var role = new IdentityRole { Name = "Funcionario" };
+            //    manager.Create(role);
+            //}
+            ////Role Medico
+            //if (!context.Roles.Any(x => x.Name == "Medico")) {
+            //    var store = new RoleStore<IdentityRole>(context);
+            //    var manager = new RoleManager<IdentityRole>(store);
+            //    var role = new IdentityRole { Name = "Medico" };
+            //    manager.Create(role);
+            //}
+            ////Role Paciente
+            //if (!context.Roles.Any(x => x.Name == "Paciente")) {
+            //    var store = new RoleStore<IdentityRole>(context);
+            //    var manager = new RoleManager<IdentityRole>(store);
+            //    var role = new IdentityRole { Name = "Paciente" };
+            //    manager.Create(role);
+            //}
 
-            //adicionar um user ao role de administrador
-            if (!context.Users.Any(y => y.Email == "rafescu@polycare.com")) {
-                var store = new UserStore<ApplicationUser>(context);
-                var manager = new UserManager<ApplicationUser>(store);
-                var user = new ApplicationUser {
-                    UserName = "rafescu@polycare.com",
-                    Email = "rafescu@polycare.com",
-                    EmailConfirmed = true,
-                    PhoneNumber = "910123123",
-                    PhoneNumberConfirmed = true
-                };
+            ////adicionar um user ao role de administrador
+            //if (!context.Users.Any(y => y.Email == "rafescu@polycare.com")) {
+            //    var store = new UserStore<ApplicationUser>(context);
+            //    var manager = new UserManager<ApplicationUser>(store);
+            //    var user = new ApplicationUser {
+            //        UserName = "rafescu@polycare.com",
+            //        Email = "rafescu@polycare.com",
+            //        EmailConfirmed = true,
+            //        PhoneNumber = "910123123",
+            //        PhoneNumberConfirmed = true
+            //    };
 
-                IdentityResult result = manager.Create(user, "123QWEasd#");
-                if (result.Succeeded == false) {
-                    throw new Exception(result.Errors.First());
-                }
-                manager.AddToRole(user.Id, "Admin");
-            }
+            //    IdentityResult result = manager.Create(user, "123QWEasd#");
+            //    if (result.Succeeded == false) {
+            //        throw new Exception(result.Errors.First());
+            //    }
+            //    manager.AddToRole(user.Id, "Admin");
+            //}
 
-            //adicionar um user ao role de funcionario
-            if (!context.Users.Any(y => y.Email == "funcionario@polycare.com")) {
-                var store = new UserStore<ApplicationUser>(context);
-                var manager = new UserManager<ApplicationUser>(store);
-                var user = new ApplicationUser {
-                    UserName = "funcionario@polycare.com",
-                    Email = "funcionario@polycare.com",
-                    EmailConfirmed = true,
-                    PhoneNumber = "912345678",
-                    PhoneNumberConfirmed = true
-                };
+            ////adicionar um user ao role de funcionario
+            //if (!context.Users.Any(y => y.Email == "funcionario@polycare.com")) {
+            //    var store = new UserStore<ApplicationUser>(context);
+            //    var manager = new UserManager<ApplicationUser>(store);
+            //    var user = new ApplicationUser {
+            //        UserName = "funcionario@polycare.com",
+            //        Email = "funcionario@polycare.com",
+            //        EmailConfirmed = true,
+            //        PhoneNumber = "912345678",
+            //        PhoneNumberConfirmed = true
+            //    };
 
-                IdentityResult result = manager.Create(user, "123QWEasd#");
-                if (result.Succeeded == false) {
-                    throw new Exception(result.Errors.First());
-                }
-                manager.AddToRole(user.Id, "Funcionario");
-            }
+            //    IdentityResult result = manager.Create(user, "123QWEasd#");
+            //    if (result.Succeeded == false) {
+            //        throw new Exception(result.Errors.First());
+            //    }
+            //    manager.AddToRole(user.Id, "Funcionario");
+            //}
 
         }
     }
