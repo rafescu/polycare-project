@@ -58,6 +58,11 @@ namespace PolyCare.Models {
         [StringLength(50)]
         public string Faculdade { get; set; }
 
+        //##################################################################
+        //criar um atributo para ligar este atributo à BD de autenticacao
+        //##################################################################
+        public string Username { get; set; }
+
         public virtual ICollection<Marcacoes> Marcacoes { get; set; }
         public virtual ICollection<Atendimentos> Atendimentos { get; set; }
     }

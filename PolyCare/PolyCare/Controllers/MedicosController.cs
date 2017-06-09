@@ -8,8 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using PolyCare.Models;
 
-namespace PolyCare.Controllers
-{
+namespace PolyCare.Controllers {
+    [Authorize]//força a que só utilizadores AUTENTICADOS consigam aceder aos métodos desta classe (aplica-se a todos os métodos)
     public class MedicosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -17,8 +17,16 @@ namespace PolyCare.Controllers
         // GET: Medicos
         public ActionResult Index()
         {
-            var medicos = db.Medicos.Include(m => m.Especialidade);
-            return View(medicos.ToList());
+            if (User.IsInRole("Funcionario") || User.IsInRole("Administrador")) {
+                var medicos = db.Medicos.Include(m => m.Especialidade);
+                return View(medicos.ToList());
+            }
+            if (User.IsInRole("Medico")) {
+                //se chegar aqui, significa que é um médico
+                return View(db.Medicos.Where(m => m.Username.Equals(User.Identity.Name)).ToList());
+            }
+            //se chegar aqui, significa que é um paciente
+            return new HttpUnauthorizedResult("Unauthorized");
         }
 
         // GET: Medicos/Details/5

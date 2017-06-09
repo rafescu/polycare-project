@@ -38,6 +38,11 @@ namespace PolyCare.Models {
         [RegularExpression("[0-9]{9}", ErrorMessage ="Escreva 9 números...")]
         public string NIF { get; set; }
 
+        //##################################################################
+        //criar um atributo para ligar este atributo à BD de autenticacao
+        //##################################################################
+        public string Username { get; set; }
+
         // um PACIENTE tem uma coleção de Marcacoes
         public virtual ICollection<Marcacoes> Marcacoes { get; set; }
 
