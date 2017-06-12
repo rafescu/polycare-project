@@ -155,6 +155,23 @@ namespace PolyCare.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password); // pass= 123Qwe/
                 if (result.Succeeded)
                 {
+                    //###################################
+                    //tentativa
+                    ApplicationDbContext db = new ApplicationDbContext();
+                    Pacientes paciente = new Pacientes();
+                    paciente.PacienteID = determinaNovoIdPaciente();
+                    paciente.Nome = model.Nome;
+                    paciente.DataNascimento = model.DataNascimento;
+                    paciente.Sexo = model.Sexo;
+                    paciente.Foto = model.Foto;
+                    paciente.NIF = model.NIF;
+                    paciente.Username = model.Email;
+                 
+                    db.Pacientes.Add(paciente);
+                    db.SaveChanges();
+                  
+                    //###################################
+
                     // await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -170,6 +187,22 @@ namespace PolyCare.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        private int determinaNovoIdPaciente() {
+
+            ApplicationDbContext db = new ApplicationDbContext();
+            //determinar o ID a atribuir ao novo 'paciente'
+            int novoID = 0;
+            try {
+                //perguntar á BD qual o último DonoID
+                novoID = db.Pacientes.Max(p => p.PacienteID) + 1;
+            } catch (Exception) {
+                //não existe dados na BD
+                //o MAX devolve NULL
+                novoID = 1;
+            }
+            return novoID;
         }
 
         //

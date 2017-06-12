@@ -41,6 +41,9 @@ namespace PolyCare.Models {
         //##################################################################
         //criar um atributo para ligar este atributo à BD de autenticacao
         //##################################################################
+        //[Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
+        [Display(Name = "Email do Paciente")]
+        [EmailAddress(ErrorMessage = "O formato deste email não é valido...")]
         public string Username { get; set; }
 
         // um PACIENTE tem uma coleção de Marcacoes
