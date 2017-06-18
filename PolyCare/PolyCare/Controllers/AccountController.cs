@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PolyCare.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace PolyCare.Controllers
 {
@@ -159,6 +160,7 @@ namespace PolyCare.Controllers
                     //###################################
                     //tentativa
                     ApplicationDbContext db = new ApplicationDbContext();
+                    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
 
                     Pacientes paciente = new Pacientes();
                     paciente.PacienteID = determinaNovoIdPaciente();
@@ -169,24 +171,25 @@ namespace PolyCare.Controllers
                     paciente.NIF = model.NIF;
                     paciente.Username = model.Email;
                     db.Pacientes.Add(paciente);
+                    var role = userManager.AddToRole(user.Id, "Paciente");
                     db.SaveChanges();
 
+                    //Medicos medico = new Medicos();
+                    //medico.MedicoID = determinaNovoIdMedico();
+                    //medico.Nome = model.Nome;
+                    //medico.DataNascimento = model.DataNascimento;
+                    //medico.Foto = model.Foto;
+                    //medico.EspecialidadeFK = model.EspecialidadeFK;
+                    //medico.NIF = model.NIF;
+                    //medico.DataEntradaClinica = model.DataEntradaClinica;
+                    //medico.NumCedulaProf = model.NumCedulaProf;
+                    //medico.DataInscOrdem = model.DataInscOrdem;
+                    //medico.Faculdade = model.Faculdade;
+                    //medico.Username = model.Email;
+                    //db.Medicos.Add(medico);
+                    //var role = userManager.AddToRole(user.Id, "Medico");
+                    //db.SaveChanges();
 
-                    Medicos medico = new Medicos();
-                    medico.MedicoID = determinaNovoIdMedico();
-                    medico.Nome = model.Nome;
-                    medico.DataNascimento = model.DataNascimento;
-                    medico.Foto = model.Foto;
-                    medico.EspecialidadeFK = model.EspecialidadeFK;
-                    medico.NIF = model.NIF;
-                    medico.DataEntradaClinica = model.DataEntradaClinica;
-                    medico.NumCedulaProf = model.NumCedulaProf;
-                    medico.DataInscOrdem = model.DataInscOrdem;
-                    medico.Faculdade = model.Faculdade;
-                    medico.Username = model.Email;
-                    db.Medicos.Add(medico);
-                    db.SaveChanges();
-                  
                     //###################################
 
                     // await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
