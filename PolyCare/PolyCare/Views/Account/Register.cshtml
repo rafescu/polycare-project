@@ -14,6 +14,16 @@
 
     //#######################
     //tentativa
+
+        @*@Html.DropDownListFor(x => x.Role, new[] {
+    new SelectListItem() {Text = "Paciente", Value = "paciente"},
+    new SelectListItem() {Text = "Médico", Value = "medico"}
+    }, "Escolha um tipo de utilizador")*@
+
+   
+
+
+
     <div class="form-group">
         @Html.LabelFor(m => m.Nome, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">

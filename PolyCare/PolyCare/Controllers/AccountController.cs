@@ -155,9 +155,11 @@ namespace PolyCare.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password); // pass= 123Qwe/
                 if (result.Succeeded)
                 {
+                    
                     //###################################
                     //tentativa
                     ApplicationDbContext db = new ApplicationDbContext();
+
                     Pacientes paciente = new Pacientes();
                     paciente.PacienteID = determinaNovoIdPaciente();
                     paciente.Nome = model.Nome;
@@ -166,8 +168,23 @@ namespace PolyCare.Controllers
                     paciente.Foto = model.Foto;
                     paciente.NIF = model.NIF;
                     paciente.Username = model.Email;
-                 
                     db.Pacientes.Add(paciente);
+                    db.SaveChanges();
+
+
+                    Medicos medico = new Medicos();
+                    medico.MedicoID = determinaNovoIdMedico();
+                    medico.Nome = model.Nome;
+                    medico.DataNascimento = model.DataNascimento;
+                    medico.Foto = model.Foto;
+                    medico.EspecialidadeFK = model.EspecialidadeFK;
+                    medico.NIF = model.NIF;
+                    medico.DataEntradaClinica = model.DataEntradaClinica;
+                    medico.NumCedulaProf = model.NumCedulaProf;
+                    medico.DataInscOrdem = model.DataInscOrdem;
+                    medico.Faculdade = model.Faculdade;
+                    medico.Username = model.Email;
+                    db.Medicos.Add(medico);
                     db.SaveChanges();
                   
                     //###################################
@@ -189,6 +206,7 @@ namespace PolyCare.Controllers
             return View(model);
         }
 
+        //determina o id do novo paciente
         private int determinaNovoIdPaciente() {
 
             ApplicationDbContext db = new ApplicationDbContext();
@@ -197,6 +215,23 @@ namespace PolyCare.Controllers
             try {
                 //perguntar á BD qual o último DonoID
                 novoID = db.Pacientes.Max(p => p.PacienteID) + 1;
+            } catch (Exception) {
+                //não existe dados na BD
+                //o MAX devolve NULL
+                novoID = 1;
+            }
+            return novoID;
+        }
+
+        //determina o id do novo médico
+        private int determinaNovoIdMedico() {
+
+            ApplicationDbContext db = new ApplicationDbContext();
+            //determinar o ID a atribuir ao novo 'médico'
+            int novoID = 0;
+            try {
+                //perguntar á BD qual o último DonoID
+                novoID = db.Medicos.Max(p => p.MedicoID) + 1;
             } catch (Exception) {
                 //não existe dados na BD
                 //o MAX devolve NULL

@@ -55,7 +55,7 @@ namespace PolyCare.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PacienteID,Nome,DataNascimento,Sexo,Foto,NIF")] Pacientes pacientes)
+        public ActionResult Create([Bind(Include = "PacienteID,Nome,DataNascimento,Sexo,NIF")] Pacientes pacientes)
         {
             //determinar o ID a atribuir ao novo 'paciente'
             int novoID = 0;
@@ -109,7 +109,7 @@ namespace PolyCare.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PacienteID,Nome,DataNascimento,Sexo,Foto,NIF")] Pacientes pacientes)
+        public ActionResult Edit([Bind(Include = "PacienteID,Nome,DataNascimento,Sexo,NIF")] Pacientes pacientes)
         {
             if (ModelState.IsValid)
             {

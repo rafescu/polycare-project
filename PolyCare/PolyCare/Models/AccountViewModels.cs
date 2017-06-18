@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PolyCare.Models
 {
@@ -63,8 +64,15 @@ namespace PolyCare.Models
         public bool RememberMe { get; set; }
     }
 
-    public class RegisterViewModel
-    {
+    public class RegisterViewModel {
+
+        //experiencia
+        //[Required]
+        //[Display(Name = "Role")]
+        //public string Role { get; set; }
+
+        
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -100,6 +108,33 @@ namespace PolyCare.Models
         [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
         [RegularExpression("[0-9]{9}", ErrorMessage = "Escreva 9 números...")]
         public string NIF { get; set; }
+
+
+
+
+
+        //atributos especiais do medico
+        // definição da chave forasteira (FK) que referencia a classe Especialidades
+        [ForeignKey("Especialidade")]
+        public int EspecialidadeFK { get; set; }
+        public virtual Especialidades Especialidade { get; set; }
+
+        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
+        [Display(Name = "Data da Entrada na Clínica")]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime? DataEntradaClinica { get; set; }
+
+        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
+        //[RegularExpression("[0-9]", ErrorMessage = "Escreva apenas números de 0 a 9...")]
+        public string NumCedulaProf { get; set; }
+
+        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
+        [Display(Name = "Data da Inscrição na Ordem")]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime? DataInscOrdem { get; set; }
+
+        [StringLength(50)]
+        public string Faculdade { get; set; }
 
     }
 
