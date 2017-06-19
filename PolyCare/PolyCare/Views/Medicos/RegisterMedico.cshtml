@@ -1,4 +1,4 @@
-﻿@model PolyCare.Models.Medicos
+﻿@*@model PolyCare.Models.Medicos
 
 @{
     ViewBag.Title = "Create";
@@ -101,4 +101,120 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+}*@
+
+@model PolyCare.Models.Medicos
+@{
+    ViewBag.Title = "Registar Médico";
 }
+
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("RegisterMedico", "Medicos", FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
+    @Html.AntiForgeryToken()
+    <h4>Create a new account.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    //#######################
+    //tentativa
+
+    @*@Html.DropDownListFor(x => x.Role, new[] {
+        new SelectListItem() {Text = "Paciente", Value = "paciente"},
+        new SelectListItem() {Text = "Médico", Value = "medico"}
+        }, "Escolha um tipo de utilizador")*@
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Nome, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DataNascimento, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.DataNascimento)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Foto, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Foto, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Sexo, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Sexo, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.NIF, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.NIF, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DataEntradaClinica, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.DataEntradaClinica)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.NumCedulaProf, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.NumCedulaProf, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DataInscOrdem, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.DataInscOrdem)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Faculdade, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Faculdade, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.EspecialidadeFK, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.EspecialidadeFK, new { @class = "form-control" })
+        </div>
+    </div>
+
+    //#######################
+    <div class="form-group">
+        @Html.LabelFor(m => m.Username, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Password", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.Password("Password", null, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("ConfirmPassword", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.Password("ConfirmPassword", null, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Register" />
+        </div>
+    </div>
+
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

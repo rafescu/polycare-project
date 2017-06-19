@@ -32,6 +32,8 @@ namespace PolyCare.Models {
         //[DataType(DataType.Upload)]
         public string Foto { get; set; }
 
+        public string Sexo { get; set; }
+
         // definição da chave forasteira (FK) que referencia a classe Especialidades
         [ForeignKey("Especialidade")]
         public int EspecialidadeFK { get; set; }
@@ -65,6 +67,7 @@ namespace PolyCare.Models {
         [Display(Name = "Email do Médico")]
         [EmailAddress(ErrorMessage = "O formato deste email não é valido...")]
         public string Username { get; set; }
+
 
         public virtual ICollection<Marcacoes> Marcacoes { get; set; }
         public virtual ICollection<Atendimentos> Atendimentos { get; set; }

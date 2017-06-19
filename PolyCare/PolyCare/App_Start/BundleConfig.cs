@@ -21,7 +21,7 @@ namespace PolyCare {
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/cerulean.bootstrap.css",
                       "~/Content/site.css"));
         }
     }

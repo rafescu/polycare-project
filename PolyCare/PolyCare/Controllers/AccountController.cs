@@ -226,22 +226,7 @@ namespace PolyCare.Controllers
             return novoID;
         }
 
-        //determina o id do novo médico
-        private int determinaNovoIdMedico() {
-
-            ApplicationDbContext db = new ApplicationDbContext();
-            //determinar o ID a atribuir ao novo 'médico'
-            int novoID = 0;
-            try {
-                //perguntar á BD qual o último DonoID
-                novoID = db.Medicos.Max(p => p.MedicoID) + 1;
-            } catch (Exception) {
-                //não existe dados na BD
-                //o MAX devolve NULL
-                novoID = 1;
-            }
-            return novoID;
-        }
+        
 
         //
         // GET: /Account/ConfirmEmail
