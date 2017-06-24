@@ -254,6 +254,14 @@
     <Content Include="Content\cerulean.bootstrap.min.css" />
     <Content Include="Content\flatly.bootstrap.css" />
     <Content Include="Content\flatly.bootstrap.min.css" />
+    <Content Include="Content\Images\acupuntura.jpg" />
+    <Content Include="Content\Images\clinica.jpg" />
+    <Content Include="Content\Images\clinica2.jpg" />
+    <Content Include="Content\Images\clinica3.jpg" />
+    <Content Include="Content\Images\dentista.png" />
+    <Content Include="Content\Images\fisioterapia.jpg" />
+    <Content Include="Content\Images\psicologia.jpg" />
+    <Content Include="Content\Images\terapia.jpg" />
     <Content Include="Content\one-page-wonder.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -352,7 +360,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

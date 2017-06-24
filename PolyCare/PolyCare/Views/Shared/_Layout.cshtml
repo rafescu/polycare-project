@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>PolyCare</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -24,6 +24,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Sobre", "About", "Home")</li>
                     <li>@Html.ActionLink("Contactos", "Contact", "Home")</li>
+               
                     @if (User.IsInRole("Funcionario") || User.IsInRole("Administrador")) {
                             <li>@Html.ActionLink("Pacientes", "Index", "pacientes")</li>
                             <li>@Html.ActionLink("Médicos", "Index", "medicos")</li>
