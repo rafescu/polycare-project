@@ -21,9 +21,6 @@
             @Html.DisplayNameFor(model => model.DataNascimento)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Foto)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.NIF)
         </th>
         <th>
@@ -53,9 +50,6 @@
             @Html.DisplayFor(modelItem => item.DataNascimento)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Foto)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.NIF)
         </td>
         <td>
@@ -71,9 +65,9 @@
             @Html.DisplayFor(modelItem => item.Faculdade)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MedicoID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MedicoID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MedicoID })
+            @Html.ActionLink("Editar", "Edit", new { id=item.MedicoID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.MedicoID }) |
+            @Html.ActionLink("Apagar", "Delete", new { id=item.MedicoID })
         </td>
     </tr>
 }

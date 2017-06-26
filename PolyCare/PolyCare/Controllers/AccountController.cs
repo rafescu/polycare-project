@@ -167,28 +167,11 @@ namespace PolyCare.Controllers
                     paciente.Nome = model.Nome;
                     paciente.DataNascimento = model.DataNascimento;
                     paciente.Sexo = model.Sexo;
-                    paciente.Foto = model.Foto;
                     paciente.NIF = model.NIF;
                     paciente.Username = model.Email;
                     db.Pacientes.Add(paciente);
                     var role = userManager.AddToRole(user.Id, "Paciente");
                     db.SaveChanges();
-
-                    //Medicos medico = new Medicos();
-                    //medico.MedicoID = determinaNovoIdMedico();
-                    //medico.Nome = model.Nome;
-                    //medico.DataNascimento = model.DataNascimento;
-                    //medico.Foto = model.Foto;
-                    //medico.EspecialidadeFK = model.EspecialidadeFK;
-                    //medico.NIF = model.NIF;
-                    //medico.DataEntradaClinica = model.DataEntradaClinica;
-                    //medico.NumCedulaProf = model.NumCedulaProf;
-                    //medico.DataInscOrdem = model.DataInscOrdem;
-                    //medico.Faculdade = model.Faculdade;
-                    //medico.Username = model.Email;
-                    //db.Medicos.Add(medico);
-                    //var role = userManager.AddToRole(user.Id, "Medico");
-                    //db.SaveChanges();
 
                     //###################################
 

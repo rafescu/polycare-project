@@ -79,14 +79,14 @@ namespace PolyCare.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "A {0} deverá possuir no mínimo 6 caracteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Reescreva a password")]
+        [Compare("Password", ErrorMessage = "As passwords não coincidem.")]
         public string ConfirmPassword { get; set; }
 
         [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
@@ -101,12 +101,8 @@ namespace PolyCare.Models
 
         public string Sexo { get; set; }
 
-        //falta colocar seguranca neste upload
-        //[DataType(DataType.Upload)]
-        public string Foto { get; set; }
-
         [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
-        [RegularExpression("[0-9]{9}", ErrorMessage = "Escreva 9 números...")]
+        [RegularExpression("[0-9]{9}", ErrorMessage = "Escreva 9 números no {0}...")]
         public string NIF { get; set; }
 
 

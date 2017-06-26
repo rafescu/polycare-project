@@ -27,15 +27,9 @@ namespace PolyCare.Models {
 
 
         public string Sexo { get; set; }
-
-        
-
-        //falta colocar seguranca neste upload
-        //[DataType(DataType.Upload)]
-        public string Foto { get; set; }
  
         [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
-        [RegularExpression("[0-9]{9}", ErrorMessage ="Escreva 9 números...")]
+        [RegularExpression("[0-9]{9}", ErrorMessage ="Escreva 9 números no {0}...")]
         public string NIF { get; set; }
 
         //##################################################################
@@ -43,7 +37,7 @@ namespace PolyCare.Models {
         //##################################################################
         //[Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
         [Display(Name = "Email do Paciente")]
-        [EmailAddress(ErrorMessage = "O formato deste email não é valido...")]
+        [EmailAddress(ErrorMessage = "O formato deste {0} não é valido...")]
         public string Username { get; set; }
 
         // um PACIENTE tem uma coleção de Marcacoes

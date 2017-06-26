@@ -27,11 +27,6 @@ namespace PolyCare.Models {
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? DataNascimento { get; set; }
 
-
-        //falta colocar seguranca neste upload
-        //[DataType(DataType.Upload)]
-        public string Foto { get; set; }
-
         public string Sexo { get; set; }
 
         // definição da chave forasteira (FK) que referencia a classe Especialidades

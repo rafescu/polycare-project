@@ -70,7 +70,7 @@ namespace PolyCare.Controllers {
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MedicoID,Nome,DataNascimento,Foto,Sexo,EspecialidadeFK,NIF,DataEntradaClinica,NumCedulaProf,DataInscOrdem,Faculdade")] Medicos medicos)
+        public ActionResult Create([Bind(Include = "MedicoID,Nome,DataNascimento,Sexo,EspecialidadeFK,NIF,DataEntradaClinica,NumCedulaProf,DataInscOrdem,Faculdade")] Medicos medicos)
         {
             //determinar o ID a atribuir ao novo 'medico'
             int novoID = 0;
@@ -137,7 +137,6 @@ namespace PolyCare.Controllers {
                     medico.MedicoID = determinaNovoIdMedico();
                     medico.Nome = model.Nome;
                     medico.DataNascimento = model.DataNascimento;
-                    medico.Foto = model.Foto;
                     medico.Sexo = model.Sexo;
                     medico.EspecialidadeFK = model.EspecialidadeFK;
                     medico.NIF = model.NIF;
@@ -211,7 +210,7 @@ namespace PolyCare.Controllers {
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MedicoID,Nome,DataNascimento,Foto,Sexo,EspecialidadeFK,NIF,DataEntradaClinica,NumCedulaProf,DataInscOrdem,Faculdade")] Medicos medicos)
+        public ActionResult Edit([Bind(Include = "MedicoID,Nome,DataNascimento,Sexo,EspecialidadeFK,NIF,DataEntradaClinica,NumCedulaProf,DataInscOrdem,Faculdade")] Medicos medicos)
         {
             if (ModelState.IsValid)
             {

@@ -260,6 +260,7 @@
     <Content Include="Content\Images\clinica3.jpg" />
     <Content Include="Content\Images\dentista.png" />
     <Content Include="Content\Images\fisioterapia.jpg" />
+    <Content Include="Content\Images\otorrino.jpg" />
     <Content Include="Content\Images\psicologia.jpg" />
     <Content Include="Content\Images\terapia.jpg" />
     <Content Include="Content\one-page-wonder.css" />
