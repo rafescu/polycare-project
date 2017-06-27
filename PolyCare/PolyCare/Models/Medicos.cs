@@ -27,6 +27,7 @@ namespace PolyCare.Models {
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? DataNascimento { get; set; }
 
+        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
         public string Sexo { get; set; }
 
         // definição da chave forasteira (FK) que referencia a classe Especialidades

@@ -33,16 +33,16 @@ namespace PolyCare.Migrations {
             // ############################################################################################
             // adiciona PACIENTES
             var pacientes = new List<Pacientes> {
-   new Pacientes  {PacienteID=1, Nome = "Pedro Gonkas", DataNascimento=new DateTime(2015,2,8), Sexo="M", NIF="123456789", Username="pgonkas@mail.com"},
-   new Pacientes  {PacienteID=2, Nome = "Maria Leal", DataNascimento=new DateTime(2015,2,8), Sexo="F", NIF="123456789", Username="mleal@mail.com"},
-   new Pacientes  {PacienteID=3, Nome = "Uri Kol", DataNascimento=new DateTime(2015,2,8), Sexo="M", NIF="123456789", Username="ukol@mail.com"},
-   new Pacientes  {PacienteID=4, Nome = "Keith Num", DataNascimento=new DateTime(2015,2,8), Sexo="M", NIF="123456789", Username="knum@mail.com"},
-   new Pacientes  {PacienteID=5, Nome = "Francisco Alves", DataNascimento=new DateTime(2015,2,8), Sexo="M", NIF="123456789", Username="falves@mail.com"},
-   new Pacientes  {PacienteID=6, Nome = "Nuno Pedro", DataNascimento=new DateTime(2015,2,8), Sexo="M", NIF="123456789", Username="npedro@mail.com"},
-   new Pacientes  {PacienteID=7, Nome = "Rafael Hugo", DataNascimento=new DateTime(2015,2,8), Sexo="M", NIF="123456789", Username="rhugo@mail.com"},
-   new Pacientes  {PacienteID=8, Nome = "Joana Maira", DataNascimento=new DateTime(2015,2,8), Sexo="F", NIF="123456789", Username="jmaira@mail.com"},
-   new Pacientes  {PacienteID=9, Nome = "Francisca Hugo", DataNascimento=new DateTime(2015,2,8), Sexo="F", NIF="123456789", Username="fhugo@mail.com"},
-   new Pacientes  {PacienteID=10, Nome = "David Tudora", DataNascimento=new DateTime(2015,2,8), Sexo="M", NIF="123456789", Username="dtudora@mail.com"}
+   new Pacientes  {PacienteID=1, Nome = "Pedro Gonkas", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", NIF="123456789", Username="pgonkas@mail.com"},
+   new Pacientes  {PacienteID=2, Nome = "Maria Leal", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", NIF="123456789", Username="mleal@mail.com"},
+   new Pacientes  {PacienteID=3, Nome = "Uri Kol", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", NIF="123456789", Username="ukol@mail.com"},
+   new Pacientes  {PacienteID=4, Nome = "Keith Num", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", NIF="123456789", Username="knum@mail.com"},
+   new Pacientes  {PacienteID=5, Nome = "Francisco Alves", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", NIF="123456789", Username="falves@mail.com"},
+   new Pacientes  {PacienteID=6, Nome = "Nuno Pedro", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", NIF="123456789", Username="npedro@mail.com"},
+   new Pacientes  {PacienteID=7, Nome = "Rafael Hugo", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", NIF="123456789", Username="rhugo@mail.com"},
+   new Pacientes  {PacienteID=8, Nome = "Joana Maira", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", NIF="123456789", Username="jmaira@mail.com"},
+   new Pacientes  {PacienteID=9, Nome = "Francisca Hugo", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", NIF="123456789", Username="fhugo@mail.com"},
+   new Pacientes  {PacienteID=10, Nome = "David Tudora", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", NIF="123456789", Username="dtudora@mail.com"}
 
 };
 
@@ -54,13 +54,13 @@ namespace PolyCare.Migrations {
             // adiciona ESPECIALIDADES
             var especialidades = new List<Especialidades> {
    new Especialidades  {EspecialidadeID=1, Designacao="Dentista"},
-   new Especialidades  {EspecialidadeID=2, Designacao="Acunputura"},
+   new Especialidades  {EspecialidadeID=2, Designacao="Acupuntura"},
    new Especialidades  {EspecialidadeID=3, Designacao="Fisioterapeuta"},
    new Especialidades  {EspecialidadeID=4, Designacao="Otorrinolaringologista"},
-   new Especialidades  {EspecialidadeID=5, Designacao="Farmaceutico"},
+   new Especialidades  {EspecialidadeID=5, Designacao="Farmacêutico"},
    new Especialidades  {EspecialidadeID=6, Designacao="Enfermeiro"},
    new Especialidades  {EspecialidadeID=7, Designacao="Massagista"},
-   new Especialidades  {EspecialidadeID=8, Designacao="Psicologo"},
+   new Especialidades  {EspecialidadeID=8, Designacao="Psicólogo"},
    new Especialidades  {EspecialidadeID=9, Designacao="Pediatra"},
    new Especialidades  {EspecialidadeID=10, Designacao="Psiquiatra"}
 
@@ -73,16 +73,16 @@ namespace PolyCare.Migrations {
             // ############################################################################################
             // adiciona MEDICOS
             var medicos = new List<Medicos> {
-   new Medicos  {MedicoID=1, Nome = "Maria Pinto", DataNascimento=new DateTime(2015,2,8), Sexo="M", EspecialidadeFK=8, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="mpinto@mail.com"},
-   new Medicos  {MedicoID=2, Nome = "Pedro Delgado", DataNascimento=new DateTime(2015,2,8), Sexo="M", EspecialidadeFK=3, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="psalgado@mail.com"},
-   new Medicos  {MedicoID=3, Nome = "Lopes Sousa", DataNascimento=new DateTime(2015,2,8), Sexo="M", EspecialidadeFK=5, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="lsousa@mail.com"},
-   new Medicos  {MedicoID=4, Nome = "Daniel Tudor", DataNascimento=new DateTime(2015,2,8), Sexo="M", EspecialidadeFK=6, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="dtudor@mail.com"},
-   new Medicos  {MedicoID=5, Nome = "Maria Ana", DataNascimento=new DateTime(2015,2,8), Sexo="M", EspecialidadeFK=1, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="mana@mail.com"},
-   new Medicos  {MedicoID=6, Nome = "Rute Marlene", DataNascimento=new DateTime(2015,2,8), Sexo="M", EspecialidadeFK=1, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="rmarlene@mail.com"},
-   new Medicos  {MedicoID=7, Nome = "Carlos Saldenha", DataNascimento=new DateTime(2015,2,8), Sexo="M", EspecialidadeFK=2, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="csaldenha@mail.com"},
-   new Medicos  {MedicoID=8, Nome = "Miguel Filipe", DataNascimento=new DateTime(2015,2,8), Sexo="M", EspecialidadeFK=3, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="mfilipe@mail.com"},
-   new Medicos  {MedicoID=9, Nome = "Mariana Huth", DataNascimento=new DateTime(2015,2,8), Sexo="M", EspecialidadeFK=1, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="mhuth@mail.com"},
-   new Medicos  {MedicoID=10, Nome = "Marta Huth", DataNascimento=new DateTime(2015,2,8), Sexo="M", EspecialidadeFK=2, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="mahuth@mail.com"}
+   new Medicos  {MedicoID=1, Nome = "Maria Pinto", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", EspecialidadeFK=8, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="mpinto@mail.com"},
+   new Medicos  {MedicoID=2, Nome = "Pedro Delgado", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", EspecialidadeFK=3, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="psalgado@mail.com"},
+   new Medicos  {MedicoID=3, Nome = "Lopes Sousa", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", EspecialidadeFK=5, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="lsousa@mail.com"},
+   new Medicos  {MedicoID=4, Nome = "Daniel Tudor", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", EspecialidadeFK=6, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="dtudor@mail.com"},
+   new Medicos  {MedicoID=5, Nome = "Maria Ana", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", EspecialidadeFK=1, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="mana@mail.com"},
+   new Medicos  {MedicoID=6, Nome = "Rute Marlene", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", EspecialidadeFK=1, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="rmarlene@mail.com"},
+   new Medicos  {MedicoID=7, Nome = "Carlos Saldenha", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", EspecialidadeFK=2, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="csaldenha@mail.com"},
+   new Medicos  {MedicoID=8, Nome = "Miguel Filipe", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", EspecialidadeFK=3, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="mfilipe@mail.com"},
+   new Medicos  {MedicoID=9, Nome = "Mariana Huth", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", EspecialidadeFK=1, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="mhuth@mail.com"},
+   new Medicos  {MedicoID=10, Nome = "Marta Huth", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", EspecialidadeFK=2, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="mahuth@mail.com"}
 };
 
             medicos.ForEach(xx => context.Medicos.AddOrUpdate(x => x.Nome, xx));
@@ -112,14 +112,14 @@ namespace PolyCare.Migrations {
             // adiciona Atendimentos
             var atendimentos = new List<Atendimentos> {
    new Atendimentos  {AtendimentoID=1, DataAtivacao = new DateTime(2013,1,2), DiaSemana="segunda", Inicio=new DateTime(2013,1,3), Fim=new DateTime(2013,1,3)},
-   new Atendimentos  {AtendimentoID=2, DataAtivacao = new DateTime(2013,1,3), DiaSemana="terca", Inicio=new DateTime(2013,1,4), Fim=new DateTime(2013,1,4)},
+   new Atendimentos  {AtendimentoID=2, DataAtivacao = new DateTime(2013,1,3), DiaSemana="terça", Inicio=new DateTime(2013,1,4), Fim=new DateTime(2013,1,4)},
    new Atendimentos  {AtendimentoID=3, DataAtivacao = new DateTime(2013,1,4), DiaSemana="quarta", Inicio=new DateTime(2013,1,5), Fim=new DateTime(2013,1,5)},
    new Atendimentos  {AtendimentoID=4, DataAtivacao = new DateTime(2013,1,5), DiaSemana="quinta", Inicio=new DateTime(2013,1,6), Fim=new DateTime(2013,1,6)},
    new Atendimentos  {AtendimentoID=5, DataAtivacao = new DateTime(2013,1,6), DiaSemana="sexta", Inicio=new DateTime(2013,1,7), Fim=new DateTime(2013,1,7)},
    new Atendimentos  {AtendimentoID=6, DataAtivacao = new DateTime(2013,1,7), DiaSemana="sábado", Inicio=new DateTime(2013,1,8), Fim=new DateTime(2013,1,8)},
    new Atendimentos  {AtendimentoID=7, DataAtivacao = new DateTime(2013,1,8), DiaSemana="domingo", Inicio=new DateTime(2013,1,9), Fim=new DateTime(2013,1,9)},
    new Atendimentos  {AtendimentoID=8, DataAtivacao = new DateTime(2013,1,9), DiaSemana="segunda", Inicio=new DateTime(2013,1,10), Fim=new DateTime(2013,1,10)},
-   new Atendimentos  {AtendimentoID=9, DataAtivacao = new DateTime(2013,1,10), DiaSemana="terca", Inicio=new DateTime(2013,1,11), Fim=new DateTime(2013,1,11)},
+   new Atendimentos  {AtendimentoID=9, DataAtivacao = new DateTime(2013,1,10), DiaSemana="terça", Inicio=new DateTime(2013,1,11), Fim=new DateTime(2013,1,11)},
    new Atendimentos  {AtendimentoID=10, DataAtivacao = new DateTime(2013,1,11), DiaSemana="quarta", Inicio=new DateTime(2013,1,12), Fim=new DateTime(2013,1,12)}
 };
 

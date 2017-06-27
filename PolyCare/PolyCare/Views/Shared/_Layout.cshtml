@@ -29,6 +29,19 @@
                             <li>@Html.ActionLink("Pacientes", "Index", "pacientes")</li>
                             <li>@Html.ActionLink("Médicos", "Index", "medicos")</li>
                     }
+                    @if (User.IsInRole("Paciente")) {
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Consultas
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Criar", "Create", "marcacoes")</li>
+                                <li>@Html.ActionLink("Criar", "Index", "marcacoes")</li>
+                                <li>@Html.ActionLink("Criar", "Index", "marcacoes")</li>
+                            </ul>
+                        </li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

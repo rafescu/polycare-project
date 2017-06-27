@@ -1,101 +1,4 @@
-﻿@*@model PolyCare.Models.Medicos
-
-@{
-    ViewBag.Title = "Create";
-}
-
-<h2>Create</h2>
-
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Medicos</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DataNascimento, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EspecialidadeFK, "EspecialidadeFK", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("EspecialidadeFK", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.EspecialidadeFK, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NIF, htmlAttributes: new { @class = "control-label col-md-2", @maxlength="9" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NIF, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NIF, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DataEntradaClinica, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DataEntradaClinica, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DataEntradaClinica, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NumCedulaProf, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NumCedulaProf, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NumCedulaProf, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DataInscOrdem, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DataInscOrdem, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DataInscOrdem, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Faculdade, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Faculdade, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Faculdade, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}*@
-
-@model PolyCare.Models.Medicos
+﻿@model PolyCare.Models.Medicos
 @{
     ViewBag.Title = "Registar Médico";
 }
@@ -104,18 +7,9 @@
 
 @using (Html.BeginForm("RegisterMedico", "Medicos", FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
     @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
+    <h4>Criar uma nova conta de médico</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
-
-    //#######################
-    //tentativa
-
-    @*@Html.DropDownListFor(x => x.Role, new[] {
-        new SelectListItem() {Text = "Paciente", Value = "paciente"},
-        new SelectListItem() {Text = "Médico", Value = "medico"}
-        }, "Escolha um tipo de utilizador")*@
-
 
     <div class="form-group">
         @Html.LabelFor(m => m.Nome, new { @class = "col-md-2 control-label" })
@@ -132,7 +26,8 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Sexo, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Sexo, new { @class = "form-control" })
+            @Html.RadioButtonFor(m => m.Sexo, "Masculino") Masculino
+            @Html.RadioButtonFor(m => m.Sexo, "Feminino") Feminino
         </div>
     </div>
     <div class="form-group">
@@ -193,7 +88,7 @@
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
+            <input type="submit" class="btn btn-default" value="Registar" />
         </div>
     </div>
 

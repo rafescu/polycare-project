@@ -18,14 +18,6 @@
         @Html.HiddenFor(model => model.MarcacaoID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CodMarcacao, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CodMarcacao, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CodMarcacao, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.DataMarcacoes, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DataMarcacoes, new { htmlAttributes = new { @class = "form-control" } })

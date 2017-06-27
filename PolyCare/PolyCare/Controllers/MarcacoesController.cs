@@ -49,7 +49,7 @@ namespace PolyCare.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MarcacaoID,CodMarcacao,DataMarcacoes,MedicoFK,PacienteFK")] Marcacoes marcacoes)
+        public ActionResult Create([Bind(Include = "MarcacaoID,DataMarcacoes,MedicoFK,PacienteFK")] Marcacoes marcacoes)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace PolyCare.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MarcacaoID,CodMarcacao,DataMarcacoes,MedicoFK,PacienteFK")] Marcacoes marcacoes)
+        public ActionResult Edit([Bind(Include = "MarcacaoID,DataMarcacoes,MedicoFK,PacienteFK")] Marcacoes marcacoes)
         {
             if (ModelState.IsValid)
             {
