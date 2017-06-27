@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PolyCare.Models;
+using Microsoft.AspNet.Identity;
 
 namespace PolyCare.Controllers
 {
@@ -36,10 +37,19 @@ namespace PolyCare.Controllers
             return View(marcacoes);
         }
 
+        public JsonResult ListaMedicos(int id) {
+
+            var medicos = db.Medicos.Where(x => x.EspecialidadeFK == id).Select(m => new { m.Nome, m.MedicoID }).ToList();
+
+            return Json(medicos, JsonRequestBehavior.AllowGet);
+        }
+
         // GET: Marcacoes/Create
         public ActionResult Create()
         {
-            ViewBag.MedicoFK = new SelectList(db.Medicos, "MedicoID", "Nome");
+            ViewBag.Especialidades = new SelectList(db.Especialidades, "EspecialidadeID", "Designacao");
+            ViewBag.MedicoFK = new SelectList(db.Medicos.Where(x => x.EspecialidadeFK == 1).Select(m => m).ToList(), "MedicoID", "Nome");
+
             ViewBag.PacienteFK = new SelectList(db.Pacientes, "PacienteID", "Nome");
             return View();
         }
@@ -53,6 +63,9 @@ namespace PolyCare.Controllers
         {
             if (ModelState.IsValid)
             {
+                //marcacoes.PacienteFK =  User.Identity.GetUserId();
+                var user = (from r in db.Pacientes where r.ExternalId == User.Identity.GetUserId() select r.PacienteID).Single();
+                marcacoes.PacienteFK = user;
                 db.Marcacoes.Add(marcacoes);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -1,4 +1,5 @@
-﻿@model PolyCare.Models.Marcacoes
+﻿@using PolyCare.Models
+@model PolyCare.Models.Marcacoes
 
 @{
     ViewBag.Title = "Create";
@@ -23,20 +24,19 @@
             </div>
         </div>
 
+        <div class="form-group">
+            @Html.Label("Especialidade:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Especialidades", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MedicoFK, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.MedicoFK, "MedicoFK", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("MedicoFK", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.MedicoFK, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PacienteFK, "PacienteFK", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("PacienteFK", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.PacienteFK, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -53,5 +53,33 @@
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryval");
+
+    <script type="text/jscript">
+        $('#Especialidades').change(function () {
+            $.ajax({
+                //base address/controller/Action
+                url: '/marcacoes/ListaMedicos/',
+                type: 'GET',
+                data: {
+                    //Passing Input parameter
+                    id: $('#Especialidades').val()
+                },
+                success: function (result) {
+                    console.log(result);
+                    $("#MedicoFK").empty();
+                    $.each(result, function (index, item) {      
+                        $("#MedicoFK").append($('<option>',
+                            {
+                                value: item.MedicoID,
+                                text: item.Nome
+                            }));
+                    });
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        });
+    </script>
 }

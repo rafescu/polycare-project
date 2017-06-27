@@ -161,7 +161,7 @@ namespace PolyCare.Controllers
                     //tentativa
                     ApplicationDbContext db = new ApplicationDbContext();
                     var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
-
+                    
                     Pacientes paciente = new Pacientes();
                     paciente.PacienteID = determinaNovoIdPaciente();
                     paciente.Nome = model.Nome;
