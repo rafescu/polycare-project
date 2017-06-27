@@ -169,6 +169,7 @@ namespace PolyCare.Controllers
                     paciente.Sexo = model.Sexo;
                     paciente.NIF = model.NIF;
                     paciente.Username = model.Email;
+                    paciente.ExternalId = user.Id;
                     db.Pacientes.Add(paciente);
                     var role = userManager.AddToRole(user.Id, "Paciente");
                     db.SaveChanges();

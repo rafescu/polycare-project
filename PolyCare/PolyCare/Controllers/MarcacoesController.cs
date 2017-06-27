@@ -63,8 +63,9 @@ namespace PolyCare.Controllers
         {
             if (ModelState.IsValid)
             {
+                var userid = User.Identity.GetUserId();
                 //marcacoes.PacienteFK =  User.Identity.GetUserId();
-                var user = (from r in db.Pacientes where r.ExternalId == User.Identity.GetUserId() select r.PacienteID).Single();
+                var user = (from r in db.Pacientes where r.ExternalId == userid select r.PacienteID).Single();
                 marcacoes.PacienteFK = user;
                 db.Marcacoes.Add(marcacoes);
                 db.SaveChanges();
