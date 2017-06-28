@@ -40,20 +40,15 @@
             </div>
 
             <h3>Marque já a sua consulta de forma rápida, online e simples</h3>
-            <p><a href="https://asp.net" class="btn btn-primary btn-lg">Saiba mais &raquo;</a></p>
+            <p><a @Html.ActionLink("Entre já! ▼", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class= "btn btn-primary btn-lg" })</a></p>
         </div>
-
-        
-
     </div>
-    <div class="row">
-        <div class="col-lg-1" style="text-align:center">
+    <div class="row" style="text-align:center">
             <h2>Como funciona</h2>
             <h4>&bull; Diriga-se à clínica</h4>
             <h4>&bull; Informe os seus dados ao funcionário</h4>
             <h4>&bull; Confirme a sua conta</h4>
             <h4>&bull; E está pronto para começar!</h4>
-        </div>
     </div>
     <div class="row" style="text-align:center">
         <h2>Especialidades</h2>
@@ -90,7 +85,7 @@
         </div>
     </div>
 
-    <div class="row">
+    @*<div class="row">
         <div class="col-md-4">
             <h2>Getting started</h2>
             <p>
@@ -110,5 +105,5 @@
             <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
             <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
         </div>
-    </div>
+    </div>*@
 </div>

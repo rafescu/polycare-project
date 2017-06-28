@@ -19,22 +19,25 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DataMarcacoes, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <span class="glyphicon glyphicon-calendar"></span>
                 @Html.EditorFor(model => model.DataMarcacoes, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DataMarcacoes, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label("Especialidade:", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Especialidade", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <span class="glyphicon glyphicon-briefcase"></span>
                 @Html.DropDownList("Especialidades", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.MedicoFK, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MedicoFK, "MedicoFK", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.MedicoFK, "Médico Especialista", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <span class="glyphicon glyphicon-user"></span>
                 @Html.DropDownList("MedicoFK", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.MedicoFK, "", new { @class = "text-danger" })
             </div>

@@ -10,7 +10,7 @@ namespace PolyCare.Models {
         [Key]
         public int MarcacaoID { get; set; } // PK, por exigência da Entity Framework
 
-        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
+        [Required(ErrorMessage = "A {0} é de preenchimento obrigatório.")]
         [Display(Name = "Data da Consulta")]
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? DataMarcacoes { get; set; } //só regista 'datas', não 'horas'

@@ -35,7 +35,7 @@ namespace PolyCare.Models
         public string Code { get; set; }
         public string ReturnUrl { get; set; }
 
-        [Display(Name = "Remember this browser?")]
+        [Display(Name = "Relembrar neste browser?")]
         public bool RememberBrowser { get; set; }
 
         public bool RememberMe { get; set; }
@@ -51,7 +51,7 @@ namespace PolyCare.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "User Login (Email)")]
+        [Display(Name = "Email")]
         [EmailAddress]
         public string Email { get; set; }
 
@@ -60,18 +60,11 @@ namespace PolyCare.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Relembrar?")]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterViewModel {
-
-        //experiencia
-        //[Required]
-        //[Display(Name = "Role")]
-        //public string Role { get; set; }
-
-        
 
         [Required]
         [EmailAddress]
@@ -106,33 +99,6 @@ namespace PolyCare.Models
         [RegularExpression("[0-9]{9}", ErrorMessage = "Escreva 9 números no {0}...")]
         public string NIF { get; set; }
 
-
-
-
-
-        //atributos especiais do medico
-        // definição da chave forasteira (FK) que referencia a classe Especialidades
-        //[ForeignKey("Especialidade")]
-        //public int EspecialidadeFK { get; set; }
-        //public virtual Especialidades Especialidade { get; set; }
-
-        //[Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
-        //[Display(Name = "Data da Entrada na Clínica")]
-        //[DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        //public DateTime? DataEntradaClinica { get; set; }
-
-        //[Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
-        ////[RegularExpression("[0-9]", ErrorMessage = "Escreva apenas números de 0 a 9...")]
-        //public string NumCedulaProf { get; set; }
-
-        //[Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
-        //[Display(Name = "Data da Inscrição na Ordem")]
-        //[DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        //public DateTime? DataInscOrdem { get; set; }
-
-        //[StringLength(50)]
-        //public string Faculdade { get; set; }
-
     }
 
     public class ResetPasswordViewModel
@@ -143,14 +109,14 @@ namespace PolyCare.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "A {0} deverá possuir no mínimo 6 caracteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "As passwords não coincidem.")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }

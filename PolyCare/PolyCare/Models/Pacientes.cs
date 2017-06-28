@@ -40,6 +40,7 @@ namespace PolyCare.Models {
         [EmailAddress(ErrorMessage = "O formato deste {0} não é valido...")]
         public string Username { get; set; }
 
+        //atributo para interligar o paciente com o utilizador
         public string ExternalId { get; set; }
 
         // um PACIENTE tem uma coleção de Marcacoes

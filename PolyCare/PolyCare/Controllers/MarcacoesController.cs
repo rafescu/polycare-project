@@ -18,7 +18,10 @@ namespace PolyCare.Controllers
         // GET: Marcacoes
         public ActionResult Index()
         {
-            var marcacoes = db.Marcacoes.Include(m => m.Medico).Include(m => m.Paciente);
+            var userid = User.Identity.GetUserId();
+            var user = (from r in db.Pacientes where r.ExternalId == userid select r.PacienteID).Single();
+            var marcacoes = db.Marcacoes.Where(x => x.PacienteFK == user).Include(m=> m.Medico.Especialidade).Include(m => m.Medico).Include(m => m.Paciente);
+
             return View(marcacoes.ToList());
         }
 
@@ -64,14 +67,12 @@ namespace PolyCare.Controllers
             if (ModelState.IsValid)
             {
                 var userid = User.Identity.GetUserId();
-                //marcacoes.PacienteFK =  User.Identity.GetUserId();
                 var user = (from r in db.Pacientes where r.ExternalId == userid select r.PacienteID).Single();
                 marcacoes.PacienteFK = user;
                 db.Marcacoes.Add(marcacoes);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             ViewBag.MedicoFK = new SelectList(db.Medicos, "MedicoID", "Nome", marcacoes.MedicoFK);
             ViewBag.PacienteFK = new SelectList(db.Pacientes, "PacienteID", "Nome", marcacoes.PacienteFK);
             return View(marcacoes);

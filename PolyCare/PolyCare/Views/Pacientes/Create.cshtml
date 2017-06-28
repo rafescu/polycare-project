@@ -69,7 +69,8 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}*@
+}
+*@
 @model PolyCare.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
@@ -83,30 +84,24 @@
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
 
-    //#######################
-    //tentativa
-
-    @*@Html.DropDownListFor(x => x.Role, new[] {
-        new SelectListItem() {Text = "Paciente", Value = "paciente"},
-        new SelectListItem() {Text = "Médico", Value = "medico"}
-        }, "Escolha um tipo de utilizador")*@
-
-
     <div class="form-group">
         @Html.LabelFor(m => m.Nome, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
+            <span class="glyphicon glyphicon-user"></span>
+            @Html.TextBoxFor(m => m.Nome, new { @class = "form-control", @placeholder="Nome" })
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.DataNascimento, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
+            <span class="glyphicon glyphicon-calendar"></span>
             @Html.EditorFor(m => m.DataNascimento)
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Sexo, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
+            <span class="glyphicon glyphicon-heart"></span>
             @Html.RadioButtonFor(m=>m.Sexo, "Masculino") Masculino
             @Html.RadioButtonFor(m => m.Sexo, "Feminino") Feminino
         </div>
@@ -114,7 +109,8 @@
     <div class="form-group">
         @Html.LabelFor(m => m.NIF, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.NIF, new { @class = "form-control", @maxlength="9" })
+            <span class="glyphicon glyphicon-piggy-bank"></span>
+            @Html.TextBoxFor(m => m.NIF, new { @class = "form-control", @maxlength="9", @placeholder = "NIF" })
         </div>
     </div>
 
@@ -122,19 +118,22 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            <span class="glyphicon glyphicon-envelope"></span>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Endereço de Email" })
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            <span class="glyphicon glyphicon-lock"></span>
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            <span class="glyphicon glyphicon-lock"></span>
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Password novamente" })
         </div>
     </div>
     <div class="form-group">
