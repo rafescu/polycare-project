@@ -16,6 +16,7 @@ namespace PolyCare.Models {
 
         [Required]
         [StringLength(55)]
+        [Display(Name = "Especialidade")]
         public string Designacao { get; set; } //nome da especialidade
 
         

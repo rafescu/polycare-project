@@ -107,6 +107,7 @@ namespace PolyCare.Controllers {
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult RegisterMedico() {
+            ViewBag.EspecialidadeFK = new SelectList(db.Especialidades, "EspecialidadeID", "Designacao");
             return View();
         }
 

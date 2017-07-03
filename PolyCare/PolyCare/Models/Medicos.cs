@@ -31,6 +31,7 @@ namespace PolyCare.Models {
         public string Sexo { get; set; }
 
         // definição da chave forasteira (FK) que referencia a classe Especialidades
+        [Display(Name = "Especialidade")]
         [ForeignKey("Especialidade")]
         public int EspecialidadeFK { get; set; }
         public virtual Especialidades Especialidade { get; set; }
@@ -45,6 +46,7 @@ namespace PolyCare.Models {
         public DateTime? DataEntradaClinica { get; set; }
 
         [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
+        [Display(Name = "Cédula Profissional")]
         //[RegularExpression("[0-9]", ErrorMessage = "Escreva apenas números de 0 a 9...")]
         public string NumCedulaProf { get; set; }
 

@@ -4,11 +4,8 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Lista de Consultas</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -41,9 +38,12 @@
             @Html.DisplayFor(modelItem => item.DataMarcacoes)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MarcacaoID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MarcacaoID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MarcacaoID })
+            
+            @Html.ActionLink("Editar", "Edit", new { id = item.MarcacaoID }) |
+	        @Html.ActionLink("Detalhes", "Details", new { id = item.MarcacaoID }) |
+            @Html.ActionLink("Cancelar", "Delete", new { id = item.MarcacaoID })
+	       
+            
         </td>
     </tr>
 }
