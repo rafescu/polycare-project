@@ -7,6 +7,9 @@
 <h2>Apagar</h2>
 
 <h3>Tem a certeza que pretende apagar este médico?</h3>
+@if (TempData["notice"] != null) {
+    <p class="alert-danger">@TempData["notice"]</p>
+}
 <div>
     <h4>Médico</h4>
     <hr />

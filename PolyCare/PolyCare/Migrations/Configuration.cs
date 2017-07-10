@@ -13,6 +13,8 @@ namespace PolyCare.Migrations {
         public Configuration() {
             AutomaticMigrationsEnabled = true;
 
+            //AutomaticMigrationDataLossAllowed = true;
+
         }
 
         protected override void Seed(PolyCare.Models.ApplicationDbContext context) {
@@ -27,7 +29,7 @@ namespace PolyCare.Migrations {
             //      new Person { FullName = "Brice Lambson" },
             //      new Person { FullName = "Rowan Miller" }
             //    );
-            //
+            //            //
 
 
             // ############################################################################################
@@ -73,16 +75,17 @@ namespace PolyCare.Migrations {
             // ############################################################################################
             // adiciona MEDICOS
             var medicos = new List<Medicos> {
-   new Medicos  {MedicoID=1, Nome = "Maria Pinto", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", EspecialidadeFK=8, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="mpinto@mail.com"},
-   new Medicos  {MedicoID=2, Nome = "Pedro Delgado", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", EspecialidadeFK=3, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="psalgado@mail.com"},
-   new Medicos  {MedicoID=3, Nome = "Lopes Sousa", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", EspecialidadeFK=5, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="lsousa@mail.com"},
-   new Medicos  {MedicoID=4, Nome = "Daniel Tudor", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", EspecialidadeFK=6, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="dtudor@mail.com"},
-   new Medicos  {MedicoID=5, Nome = "Maria Ana", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", EspecialidadeFK=1, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="mana@mail.com"},
-   new Medicos  {MedicoID=6, Nome = "Rute Marlene", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", EspecialidadeFK=1, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="rmarlene@mail.com"},
-   new Medicos  {MedicoID=7, Nome = "Carlos Saldenha", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", EspecialidadeFK=2, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="csaldenha@mail.com"},
-   new Medicos  {MedicoID=8, Nome = "Miguel Filipe", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", EspecialidadeFK=3, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="mfilipe@mail.com"},
-   new Medicos  {MedicoID=9, Nome = "Mariana Huth", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", EspecialidadeFK=1, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="mhuth@mail.com"},
-   new Medicos  {MedicoID=10, Nome = "Marta Huth", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", EspecialidadeFK=2, NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="mahuth@mail.com"}
+
+   new Medicos  {MedicoID=1, Nome = "Maria Pinto", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="mpinto@mail.com"},
+   new Medicos  {MedicoID=2, Nome = "Pedro Delgado", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="psalgado@mail.com"},
+   new Medicos  {MedicoID=3, Nome = "Lopes Sousa", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="lsousa@mail.com"},
+   new Medicos  {MedicoID=4, Nome = "Daniel Tudor", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="dtudor@mail.com"},
+   new Medicos  {MedicoID=5, Nome = "Maria Ana", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Porto", Username="mana@mail.com"},
+   new Medicos  {MedicoID=6, Nome = "Rute Marlene", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="rmarlene@mail.com"},
+   new Medicos  {MedicoID=7, Nome = "Carlos Saldenha", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="csaldenha@mail.com"},
+   new Medicos  {MedicoID=8, Nome = "Miguel Filipe", DataNascimento=new DateTime(2015,2,8), Sexo="Masculino", NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="mfilipe@mail.com"},
+   new Medicos  {MedicoID=9, Nome = "Mariana Huth", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="mhuth@mail.com"},
+   new Medicos  {MedicoID=10, Nome = "Marta Huth", DataNascimento=new DateTime(2015,2,8), Sexo="Feminino", NIF="123456789", DataEntradaClinica=new DateTime(2015,2,8), NumCedulaProf="1234", DataInscOrdem=new DateTime(2015,2,8), Faculdade="Lisboa", Username="mahuth@mail.com"}
 };
 
             medicos.ForEach(xx => context.Medicos.AddOrUpdate(x => x.Nome, xx));
@@ -92,16 +95,16 @@ namespace PolyCare.Migrations {
             // ############################################################################################
             // adiciona Marcacoes
             var marcacoes = new List<Marcacoes> {
-   new Marcacoes  {MarcacaoID=1, DataMarcacoes=new DateTime(2013,1,2), MedicoFK=2, PacienteFK=8},
-   new Marcacoes  {MarcacaoID=2, DataMarcacoes=new DateTime(2014,2,2), MedicoFK=1, PacienteFK=9},
-   new Marcacoes  {MarcacaoID=3, DataMarcacoes=new DateTime(2014,3,1), MedicoFK=8, PacienteFK=9},
-   new Marcacoes  {MarcacaoID=4, DataMarcacoes=new DateTime(2015,3,2), MedicoFK=9, PacienteFK=8},
-   new Marcacoes  {MarcacaoID=5, DataMarcacoes=new DateTime(2015,4,2), MedicoFK=8, PacienteFK=4},
-   new Marcacoes  {MarcacaoID=6, DataMarcacoes=new DateTime(2015,6,11), MedicoFK=3, PacienteFK=3},
-   new Marcacoes  {MarcacaoID=7, DataMarcacoes=new DateTime(2016,7,12), MedicoFK=4, PacienteFK=3},
-   new Marcacoes  {MarcacaoID=8, DataMarcacoes=new DateTime(2016,8,14), MedicoFK=5, PacienteFK=2},
-   new Marcacoes  {MarcacaoID=9, DataMarcacoes=new DateTime(2016,9,21), MedicoFK=5, PacienteFK=1},
-   new Marcacoes  {MarcacaoID=10, DataMarcacoes=new DateTime(2016,10,22), MedicoFK=6, PacienteFK=5}
+   new Marcacoes  {MarcacaoID=1, DataMarcacoes=new DateTime(2013,1,2), MedicoFK=2, PacienteFK=8, EspecialidadeFK=4},
+   new Marcacoes  {MarcacaoID=2, DataMarcacoes=new DateTime(2014,2,2), MedicoFK=1, PacienteFK=9, EspecialidadeFK=4},
+   new Marcacoes  {MarcacaoID=3, DataMarcacoes=new DateTime(2014,3,1), MedicoFK=8, PacienteFK=9, EspecialidadeFK=5},
+   new Marcacoes  {MarcacaoID=4, DataMarcacoes=new DateTime(2015,3,2), MedicoFK=9, PacienteFK=8, EspecialidadeFK=7},
+   new Marcacoes  {MarcacaoID=5, DataMarcacoes=new DateTime(2015,4,2), MedicoFK=8, PacienteFK=4, EspecialidadeFK=6},
+   new Marcacoes  {MarcacaoID=6, DataMarcacoes=new DateTime(2015,6,11), MedicoFK=3, PacienteFK=3, EspecialidadeFK=5},
+   new Marcacoes  {MarcacaoID=7, DataMarcacoes=new DateTime(2016,7,12), MedicoFK=4, PacienteFK=3, EspecialidadeFK=2},
+   new Marcacoes  {MarcacaoID=8, DataMarcacoes=new DateTime(2016,8,14), MedicoFK=5, PacienteFK=2, EspecialidadeFK=3},
+   new Marcacoes  {MarcacaoID=9, DataMarcacoes=new DateTime(2016,9,21), MedicoFK=5, PacienteFK=1, EspecialidadeFK=3},
+   new Marcacoes  {MarcacaoID=10, DataMarcacoes=new DateTime(2016,10,22), MedicoFK=6, PacienteFK=5, EspecialidadeFK=4}
 };
 
             marcacoes.ForEach(yy => context.Marcacoes.AddOrUpdate(y => y.MarcacaoID, yy));

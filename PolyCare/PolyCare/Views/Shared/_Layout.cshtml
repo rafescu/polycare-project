@@ -27,8 +27,29 @@
                
                     @if (User.IsInRole("Funcionario") || User.IsInRole("Administrador")) {
                             <li>@Html.ActionLink("Pacientes", "Index", "pacientes")</li>
-                            <li>@Html.ActionLink("Médicos", "Index", "medicos")</li>
-                            <li>@Html.ActionLink("Especialidades", "Index", "especialidades")</li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Médicos
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Listar", "Index", "medicos")</li>
+                                    <li>@Html.ActionLink("Especialidades", "Index", "especialidades")</li>
+                                </ul>
+                            </li>
+                            <li>@Html.ActionLink("Marcações", "Index", "marcacoes")</li>
+                    }
+                    @if (User.IsInRole("Medico")) {
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Consultas
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Consultar", "Index", "marcacoes")</li>
+                                <li>@Html.ActionLink("Cancelar", "Index", "marcacoes")</li>
+                            </ul>
+                        </li>
                     }
                     @if (User.IsInRole("Paciente")) {
                         <li class="dropdown">

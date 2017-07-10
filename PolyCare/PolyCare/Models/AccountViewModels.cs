@@ -99,6 +99,7 @@ namespace PolyCare.Models
         [RegularExpression("[0-9]{9}", ErrorMessage = "Escreva 9 números no {0}...")]
         public string NIF { get; set; }
 
+       
     }
 
     public class ResetPasswordViewModel

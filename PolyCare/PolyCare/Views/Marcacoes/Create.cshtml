@@ -14,6 +14,7 @@
     
     <div class="form-horizontal">
         <h4>Consultas</h4>
+        <img src="~/Content/Images/consulta.jpg" alt="Consulta" style="text-align:center">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -38,7 +39,8 @@
             @Html.LabelFor(model => model.MedicoFK, "Médico Especialista", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <span class="glyphicon glyphicon-user"></span>
-                @Html.DropDownList("MedicoFK", null, htmlAttributes: new { @class = "form-control" })
+                @*@Html.DropDownList("MedicoFK", null, htmlAttributes: new { @class = "form-control" })*@
+                @Html.DropDownList("Especialidades", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.MedicoFK, "", new { @class = "text-danger" })
             </div>
         </div>

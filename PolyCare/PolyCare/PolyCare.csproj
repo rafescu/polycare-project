@@ -258,6 +258,7 @@
     <Content Include="Content\Images\clinica.jpg" />
     <Content Include="Content\Images\clinica2.jpg" />
     <Content Include="Content\Images\clinica3.jpg" />
+    <Content Include="Content\Images\consulta.jpg" />
     <Content Include="Content\Images\dentista.png" />
     <Content Include="Content\Images\fisioterapia.jpg" />
     <Content Include="Content\Images\otorrino.jpg" />

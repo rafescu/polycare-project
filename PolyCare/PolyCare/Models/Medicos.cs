@@ -8,9 +8,16 @@ using System.Web;
 namespace PolyCare.Models {
     public class Medicos {
 
+        /*
+         - retirar a especialidade + espcialidadeFK
+         - atribuir especialidade 'a marcacao
+         - usar externalID ou username. Apenas um dos dois...    
+             */
+
         public Medicos() {
             Marcacoes = new HashSet<Marcacoes>();
-            Atendimentos=new HashSet<Atendimentos>();
+            Atendimentos = new HashSet<Atendimentos>();
+            EspecialidadesDoMedico = new HashSet<Especialidades>();
         }
 
         [Key]
@@ -29,12 +36,6 @@ namespace PolyCare.Models {
 
         [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
         public string Sexo { get; set; }
-
-        // definição da chave forasteira (FK) que referencia a classe Especialidades
-        [Display(Name = "Especialidade")]
-        [ForeignKey("Especialidade")]
-        public int EspecialidadeFK { get; set; }
-        public virtual Especialidades Especialidade { get; set; }
 
         [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
         [RegularExpression("[0-9]{9}", ErrorMessage = "Escreva 9 números...")]
@@ -66,8 +67,19 @@ namespace PolyCare.Models {
         [EmailAddress(ErrorMessage = "O formato deste email não é valido...")]
         public string Username { get; set; }
 
+        //atributo para interligar o médico com o utilizador
+        public string ExternalId { get; set; }
+
+        //esta propriedade está excluída da base de dados
+        [NotMapped]
+        public List<Especialidades> lista { get; set; }
+
+        //#########################################################################
+        public virtual ICollection<Especialidades> EspecialidadesDoMedico { get; set; }
 
         public virtual ICollection<Marcacoes> Marcacoes { get; set; }
+
         public virtual ICollection<Atendimentos> Atendimentos { get; set; }
+        //#########################################################################
     }
 }

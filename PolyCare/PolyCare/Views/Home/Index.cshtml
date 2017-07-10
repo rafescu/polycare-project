@@ -41,7 +41,14 @@
             </div>
 
             <h3>Marque já a sua consulta de forma rápida, online e simples</h3>
-            <p><a @Html.ActionLink("Entre já! ▼", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class= "btn btn-primary btn-lg" })</a></p>
+            @if (User.IsInRole("Administrador") || User.IsInRole("Funcionario") || User.IsInRole("Paciente") || User.IsInRole("Medico")) {
+                //show button
+            }
+            else {
+                //hide button
+               <p>@Html.ActionLink("Entre já! ▼", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-primary btn-lg" })</p>
+            }
+            
         </div>
     </div>
     <div class="row" style="text-align:center">

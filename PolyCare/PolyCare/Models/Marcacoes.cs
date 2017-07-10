@@ -7,6 +7,7 @@ using System.Web;
 
 namespace PolyCare.Models {
     public class Marcacoes {
+
         [Key]
         public int MarcacaoID { get; set; } // PK, por exigência da Entity Framework
 
@@ -24,5 +25,11 @@ namespace PolyCare.Models {
         [ForeignKey("Paciente")]
         public int PacienteFK { get; set; }
         public virtual Pacientes Paciente { get; set; }
+
+        // definição da chave forasteira (FK) que referencia a classe Especialidades
+        [Display(Name = "Especialidade")]
+        [ForeignKey("Especialidade")]
+        public int EspecialidadeFK { get; set; }
+        public virtual Especialidades Especialidade { get; set; }
     }
 }
