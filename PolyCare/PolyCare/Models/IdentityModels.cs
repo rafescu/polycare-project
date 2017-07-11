@@ -35,7 +35,8 @@ namespace PolyCare.Models
         public virtual DbSet<Especialidades> Especialidades { get; set; }
         public virtual DbSet<Marcacoes> Marcacoes { get; set; }
         public virtual DbSet<Atendimentos> Atendimentos { get; set; }
-        
+        public virtual DbSet<Carrousel> Carrousels { get; set; }
+
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
@@ -45,5 +46,6 @@ namespace PolyCare.Models
 
             base.OnModelCreating(modelBuilder);
         }
+
     }
 }

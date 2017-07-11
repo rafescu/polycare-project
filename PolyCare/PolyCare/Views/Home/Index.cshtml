@@ -1,5 +1,7 @@
-﻿@{
+﻿@model IEnumerable<PolyCare.Models.Carrousel>
+@{
     ViewBag.Title = "Página Inicial";
+    var i = 0;
 }
 <div class="container">
     <div class="row" style="text-align:center">
@@ -7,37 +9,68 @@
             <h1>PolyCare Clinic</h1>
             @*<img src="~/Content/Images/clinica.jpg" height="350" width="700" alt="Polycare Background" />*@
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicadores -->
-                
 
-                <!-- Contentor dos slides -->
-                <div class="carousel-inner col-md-4 col-md-offset-2" >
+                @if (Model.Count() > 0) {
+                    <!-- Indicadores -->
                     <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        @for (var x = 0; x < Model.Count(); x++) {
+                            if (x == 0) {
+                                <li data-target="#myCarousel" data-slide-to="@x" class="active" style="background-color:#022a50;"></li>
+                            }
+                            else {
+                                <li data-target="#myCarousel" data-slide-to="@x"></li>
+                            }
+                        }
                     </ol>
-                    <div class="item active" style="width:700px;height:350px">
-                        <img src="~/Content/Images/clinica.jpg" alt="Clínica" style="text-align:center">
-                    </div>
 
-                    <div class="item" style="width:700px;height:350px">
-                        <img src="~/Content/Images/clinica2.jpg" alt="Clínica">
+                    <!-- Contentor dos slides -->
+                    <div class="carousel-inner col-md-4 col-md-offset-2" style="margin-top:3%;margin-bottom:3%;">
+                        @foreach (var item in Model) {
+                            if (i > 0) {
+                                <div class="item active" style="width:700px;height:350px">
+                                    <img src="~/Content/Images/Carrousel/@item.ImgSource" style="margin: 0 auto; display: block;" alt="@item.Title">
+                                </div>
+                                <p style="color:#0094ff; background-color:rgba(0, 0, 0, 0.4);">@item.Title</p>
+                            }
+                            else {
+                                <div class="item" style="width:700px;height:350px">
+                                    <img src="~/Content/Images/Carrousel/@item.ImgSource" style="margin: 0 auto; display: block;" alt="@item.Title">                                
+                                </div>
+                                <p style="color:#0094ff; background-color:rgba(0, 0, 0, 0.4);"> @item.Title </p>
+                            }
+                            i++;
+                        }
                     </div>
-                    <div class="item" style="width:700px;height:350px">
-                        <img src="~/Content/Images/clinica3.jpg" alt="Clínica">
-                    </div>
-                </div>
+                }
+                else {
+                     <!-- Contentor dos slides -->
+                    <div class="carousel-inner col-md-4 col-md-offset-2">
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                        <div class="item active" style="width:700px;height:350px">
+                            <img src="~/Content/Images/clinica.jpg" alt="Clínica" style="text-align:center">
+                        </div>
 
-                <!-- Controlos para a direita e esquerda -->
-                @*<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <div class="item" style="width:700px;height:350px">
+                            <img src="~/Content/Images/clinica2.jpg" alt="Clínica">
+                        </div>
+                        <div class="item" style="width:700px;height:350px">
+                            <img src="~/Content/Images/clinica3.jpg" alt="Clínica">
+                        </div>
+                    </div>
+                }
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                     <span class="sr-only">Previous</span>
                 </a>
                 <a class="right carousel-control" href="#myCarousel" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                     <span class="sr-only">Next</span>
-                </a>*@
+                </a>
             </div>
 
             <h3>Marque já a sua consulta de forma rápida, online e simples</h3>
@@ -46,72 +79,72 @@
             }
             else {
                 //hide button
-               <p>@Html.ActionLink("Entre já! ▼", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-primary btn-lg" })</p>
+                <p>@Html.ActionLink("Entre já! ▼", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-primary btn-lg" })</p>
             }
-            
+
         </div>
     </div>
     <div class="row" style="text-align:center">
-            <h2>Como funciona</h2>
-            <h4>&bull; Diriga-se à clínica</h4>
-            <h4>&bull; Informe os seus dados ao funcionário</h4>
-            <h4>&bull; Confirme a sua conta</h4>
-            <h4>&bull; E está pronto para começar!</h4>
+        <h2>Como funciona</h2>
+        <h4>&bull; Diriga-se à clínica</h4>
+        <h4>&bull; Informe os seus dados ao funcionário</h4>
+        <h4>&bull; Confirme a sua conta</h4>
+        <h4>&bull; E está pronto para começar!</h4>
     </div>
     <div class="row" style="text-align:center">
         <h2>Especialidades</h2>
-            <h6>Para obter mais informações sobre cada especialidade, clique nas imagens...</h6>
+        <h6>Para obter mais informações sobre cada especialidade, clique nas imagens...</h6>
         <div class="col-md-4">
             <h3>Fisioterapia</h3>
             <img src="~/Content/Images/fisioterapia.jpg" class="media-object" style="width:200px; height:190px" data-toggle="collapse" data-target="#demo1">
-                <h6 id="demo1" class="collapse">Fisioterapia é uma ciência da saúde aplicada ao estudo, diagnóstico, prevenção e tratamento de disfunções cinéticas funcionais de órgãos e sistemas. Sua gestão necessita do entendimento das estruturas e funções do corpo humano. Ela estuda, diagnostica, previne e trata os distúrbios, entre outros, cinético-funcionais (da biomecânica e funcionalidade humana) decorrentes de alterações de órgãos e sistemas humanos.</h6>
+            <h6 id="demo1" class="collapse">Fisioterapia é uma ciência da saúde aplicada ao estudo, diagnóstico, prevenção e tratamento de disfunções cinéticas funcionais de órgãos e sistemas. Sua gestão necessita do entendimento das estruturas e funções do corpo humano. Ela estuda, diagnostica, previne e trata os distúrbios, entre outros, cinético-funcionais (da biomecânica e funcionalidade humana) decorrentes de alterações de órgãos e sistemas humanos.</h6>
         </div>
         <div class="col-md-4">
             <h3>Psicologia</h3>
             <img src="~/Content/Images/psicologia.jpg" class="media-object" style="width:200px; height:190px" data-toggle="collapse" data-target="#demo2">
-                <h6 id="demo2" class="collapse">A função dos psicólogos é tentar compreender o papel das funções mentais no comportamento individual e social, estudando também os processos fisiológicos e biológicos que acompanham os comportamentos e funções cognitivas.</h6>
+            <h6 id="demo2" class="collapse">A função dos psicólogos é tentar compreender o papel das funções mentais no comportamento individual e social, estudando também os processos fisiológicos e biológicos que acompanham os comportamentos e funções cognitivas.</h6>
         </div>
         <div class="col-md-4">
             <h3>Terapia da Fala</h3>
             <img src="~/Content/Images/terapia.jpg" class="media-object" style="width:200px; height:190px" data-toggle="collapse" data-target="#demo3">
-                <h6 id="demo3" class="collapse">É a ciência que tem como objeto de estudo as funções neurovegetativas (mastigação, deglutição e aspectos funcionais da respiração) e a comunicação humana neurológica mais complexa que o sistema nervoso pode processar, no que se refere ao seu desenvolvimento, aperfeiçoamento, distúrbios e diferenças, em relação aos aspectos envolvidos na função auditiva periférica e central, na função vestibular, na função cognitiva, na linguagem oral e escrita, na fala, na fluência, na voz, nas funções estomatognáticas, orofaciais e na deglutição.</h6>
+            <h6 id="demo3" class="collapse">É a ciência que tem como objeto de estudo as funções neurovegetativas (mastigação, deglutição e aspectos funcionais da respiração) e a comunicação humana neurológica mais complexa que o sistema nervoso pode processar, no que se refere ao seu desenvolvimento, aperfeiçoamento, distúrbios e diferenças, em relação aos aspectos envolvidos na função auditiva periférica e central, na função vestibular, na função cognitiva, na linguagem oral e escrita, na fala, na fluência, na voz, nas funções estomatognáticas, orofaciais e na deglutição.</h6>
         </div>
         <div class="col-md-4">
             <h3>Cliníca Dentária</h3>
             <img src="~/Content/Images/dentista.png" class="media-object" style="width:200px; height:190px" data-toggle="collapse" data-target="#demo4">
-                <h6 id="demo4" class="collapse">Profissional da saúde capacitado na área de odontologia. Visitas ao dentista consistem, na maioria das vezes, em revisão da higiene bucal e integridade dos dentes, incluindo limpeza e profilaxia.</h6>
+            <h6 id="demo4" class="collapse">Profissional da saúde capacitado na área de odontologia. Visitas ao dentista consistem, na maioria das vezes, em revisão da higiene bucal e integridade dos dentes, incluindo limpeza e profilaxia.</h6>
         </div>
         <div class="col-md-4">
             <h3>Acupuntura</h3>
             <img src="~/Content/Images/acupuntura.jpg" class="media-object" style="width:200px; height:190px" data-toggle="collapse" data-target="#demo5">
-                <h6 id="demo5" class="collapse">O tratamento acupunterápico consiste no diagnóstico (igualmente baseado em ensinamentos clássicos da Medicina Tradicional Chinesa) e na aplicação de agulhas em pontos definidos do corpo.</h6>
+            <h6 id="demo5" class="collapse">O tratamento acupunterápico consiste no diagnóstico (igualmente baseado em ensinamentos clássicos da Medicina Tradicional Chinesa) e na aplicação de agulhas em pontos definidos do corpo.</h6>
         </div>
         <div class="col-md-4">
             <h3>Otorrinolaringologia</h3>
             <img src="~/Content/Images/otorrino.jpg" class="media-object" style="width:200px; height:190px" data-toggle="collapse" data-target="#demo6">
-                <h6 id="demo6" class="collapse">A otorrinolaringologia (ORL) é uma especialidade médica com características clínicas e cirúrgicas. Seu campo de atuação envolve as doenças do ouvido, do nariz e seios paranasais, faringe, laringe, cabeça e pescoço.</h6>
+            <h6 id="demo6" class="collapse">A otorrinolaringologia (ORL) é uma especialidade médica com características clínicas e cirúrgicas. Seu campo de atuação envolve as doenças do ouvido, do nariz e seios paranasais, faringe, laringe, cabeça e pescoço.</h6>
         </div>
     </div>
 
     @*<div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </div>
-    </div>*@
+            <div class="col-md-4">
+                <h2>Getting started</h2>
+                <p>
+                    ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                    enables a clean separation of concerns and gives you full control over markup
+                    for enjoyable, agile development.
+                </p>
+                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Get more libraries</h2>
+                <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Web Hosting</h2>
+                <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+            </div>
+        </div>*@
 </div>

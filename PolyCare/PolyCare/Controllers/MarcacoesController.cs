@@ -19,20 +19,19 @@ namespace PolyCare.Controllers {
 
             if (User.IsInRole("Paciente")) {
                 var user = (from r in db.Pacientes where r.ExternalId == userid select r.PacienteID).Single();
-                //  var marcacoes = db.Marcacoes.Where(x => x.PacienteFK == user).Include(m => m.Medico.Especialidade).Include(m => m.Medico).Include(m => m.Paciente);
+                var marca = db.Pacientes.Where(p => p.ExternalId.Equals(userid)).FirstOrDefault().Marcacoes;
 
-                var marca = db.Pacientes.Where(p => p.ExternalId.Equals(User.Identity.GetUserId())).FirstOrDefault().Marcacoes;
-
-                //return View(marcacoes.ToList());
+               
                 return View(marca);
             }
             if (User.IsInRole("Medico")) {
-                var user = (from r in db.Medicos where r.ExternalId == userid select r.MedicoID).Single();
-                //  var marcacoes = db.Marcacoes.Where(x => x.MedicoFK == user).Include(m => m.Medico.Especialidade).Include(m => m.Medico).Include(m => m.Paciente);
-                //  return View(marcacoes.ToList());
-                return View();
+                var medico = (from r in db.Medicos where r.ExternalId == userid select r.MedicoID).Single();
+                var marcacoes = db.Marcacoes.Where(x => x.MedicoFK == medico).Include(m => m.Especialidade).Include(m => m.Medico).Include(m => m.Paciente);
+                return View(marcacoes.ToList());
             }
-            return View();
+
+            //se for Funcionário, retorna todas as Marcações
+            return View(db.Marcacoes.ToList());
         }
 
         // GET: Marcacoes/Details/5
@@ -54,10 +53,10 @@ namespace PolyCare.Controllers {
         /// <returns>lista de medicos</returns>
         public JsonResult ListaMedicos(int id) {
 
-            // var medicos = db.Medicos.Where(x => x.EspecialidadeFK == id).Select(m => new { m.Nome, m.MedicoID }).ToList();
-            var medicos = db.Especialidades.Where(e => e.EspecialidadeID == id).Select(e => e.ListaDeMedicos);
+            var lista_medicos = db.Especialidades.Where(x => x.EspecialidadeID == id).Single().ListaDeMedicos.Select(m=> new { m.Nome, m.MedicoID }).ToList();
 
-            return Json(medicos, JsonRequestBehavior.AllowGet);
+
+            return Json(lista_medicos, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
@@ -66,10 +65,9 @@ namespace PolyCare.Controllers {
         /// <returns></returns>
         // GET: Marcacoes/Create
         public ActionResult Create() {
-            ViewBag.Especialidades = new SelectList(db.Especialidades, "EspecialidadeID", "Designacao");
+            ViewBag.EspecialidadeFK = new SelectList(db.Especialidades, "EspecialidadeID", "Designacao");
 
-
-            //  ViewBag.MedicoFK = new SelectList(db.Medicos.Where(x => x.EspecialidadeFK == 1).Select(m => m).ToList(), "MedicoID", "Nome");
+            ViewBag.MedicoFK = new SelectList(db.Especialidades.Where(x => x.EspecialidadeID == 1).Single().ListaDeMedicos.Select(m => m).ToList(), "MedicoID", "Nome");
 
             //ViewBag.PacienteFK = new SelectList(db.Pacientes, "PacienteID", "Nome");
             return View();
@@ -80,11 +78,16 @@ namespace PolyCare.Controllers {
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MarcacaoID,DataMarcacoes,MedicoFK,PacienteFK")] Marcacoes marcacoes) {
+        public ActionResult Create([Bind(Include = "MarcacaoID,DataMarcacoes,MedicoFK,PacienteFK,EspecialidadeFK")] Marcacoes marcacoes) {
             if (ModelState.IsValid) {
-                var userid = User.Identity.GetUserId();
 
+                //busca o id do utilizador autenticado
+                var userid = User.Identity.GetUserId();
+                //igual o id do paciente ao id do utilizador autenticado
                 var user = (from r in db.Pacientes where r.ExternalId == userid select r.PacienteID).Single();
+
+                var marcId = db.Marcacoes.Count() + 1;
+                marcacoes.MarcacaoID = marcId;
 
                 marcacoes.PacienteFK = user;
                 db.Marcacoes.Add(marcacoes);
@@ -116,7 +119,7 @@ namespace PolyCare.Controllers {
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MarcacaoID,DataMarcacoes,MedicoFK,PacienteFK")] Marcacoes marcacoes) {
+        public ActionResult Edit([Bind(Include = "MarcacaoID,DataMarcacoes,MedicoFK,PacienteFK,EspecialidadeFK")] Marcacoes marcacoes) {
             if (ModelState.IsValid) {
                 db.Entry(marcacoes).State = EntityState.Modified;
                 db.SaveChanges();

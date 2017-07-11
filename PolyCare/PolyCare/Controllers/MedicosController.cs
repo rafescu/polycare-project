@@ -127,12 +127,22 @@ namespace PolyCare.Controllers {
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> RegisterMedico(Medicos model, string Password, string ConfirmPassword, string[] Checked) {
 
+            //lista é uma List<Especialidades>
+            ViewBag.lista = db.Especialidades.ToList();
+
             if (Password == "" || ConfirmPassword == "") {
                 ModelState.AddModelError("", string.Format("Por favor, preencha os campos de Password e Confirmar Password..."));
                 return View(model);
             }
             if (Password != ConfirmPassword || Password.Length < 6) {
                 ModelState.AddModelError("", string.Format("Por favor, a Password e a sua confirmação tem que ser iguais, e têm de ter, pelo menos, 6 carateres..."));
+                return View(model);
+            }
+
+            if (Checked == null) {
+                
+
+                ModelState.AddModelError("", string.Format("Por favor, selecione uma especialidade..."));
                 return View(model);
             }
 
@@ -152,6 +162,7 @@ namespace PolyCare.Controllers {
                     medico.Nome = model.Nome;
                     medico.DataNascimento = model.DataNascimento;
                     medico.Sexo = model.Sexo;
+
                     foreach (var item in Checked) {
                         var idEsp = Convert.ToInt16(item);
                         medico.EspecialidadesDoMedico.Add(db.Especialidades.Select(x=>x).Where(x=>x.EspecialidadeID==idEsp).FirstOrDefault());
@@ -236,7 +247,7 @@ namespace PolyCare.Controllers {
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MedicoID,Nome,DataNascimento,Sexo,NIF,DataEntradaClinica,NumCedulaProf,DataInscOrdem,Faculdade")] Medicos medicos) {
+        public ActionResult Edit([Bind(Include = "MedicoID,Nome,DataNascimento,Sexo,NIF,DataEntradaClinica,NumCedulaProf,DataInscOrdem,Faculdade,Username,ExternalId")] Medicos medicos) {
             if (ModelState.IsValid) {
                 db.Entry(medicos).State = EntityState.Modified;
                 db.SaveChanges();

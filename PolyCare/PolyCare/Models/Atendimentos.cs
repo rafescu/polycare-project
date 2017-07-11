@@ -7,8 +7,7 @@ using System.Web;
 
 namespace PolyCare.Models {
     public class Atendimentos {
-        public Atendimentos() {
-            
+        public Atendimentos() {   
         }
 
         [Key]

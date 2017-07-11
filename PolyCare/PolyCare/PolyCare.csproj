@@ -224,6 +224,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AtendimentosController.cs" />
+    <Compile Include="Controllers\CarrouselsController.cs" />
     <Compile Include="Controllers\EspecialidadesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -236,6 +237,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Atendimentos.cs" />
+    <Compile Include="Models\Carrousel.cs" />
     <Compile Include="Models\Especialidades.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -359,9 +361,14 @@
     <Content Include="Views\Marcacoes\Details.cshtml" />
     <Content Include="Views\Marcacoes\Edit.cshtml" />
     <Content Include="Views\Marcacoes\Index.cshtml" />
+    <Content Include="Views\Carrousels\AddImage.cshtml" />
+    <Content Include="Views\Carrousels\Delete.cshtml" />
+    <Content Include="Views\Carrousels\Edit.cshtml" />
+    <Content Include="Views\Carrousels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\Carrousel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

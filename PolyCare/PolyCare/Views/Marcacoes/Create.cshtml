@@ -26,12 +26,13 @@
             </div>
         </div>
 
+
         <div class="form-group">
-            @Html.Label("Especialidade", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EspecialidadeFK, "Especialidade", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <span class="glyphicon glyphicon-briefcase"></span>
-                @Html.DropDownList("Especialidades", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.MedicoFK, "", new { @class = "text-danger" })
+                @Html.DropDownList("EspecialidadeFK", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EspecialidadeFK, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -39,8 +40,7 @@
             @Html.LabelFor(model => model.MedicoFK, "Médico Especialista", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <span class="glyphicon glyphicon-user"></span>
-                @*@Html.DropDownList("MedicoFK", null, htmlAttributes: new { @class = "form-control" })*@
-                @Html.DropDownList("Especialidades", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("MedicoFK", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.MedicoFK, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -61,14 +61,14 @@
     @Scripts.Render("~/bundles/jqueryval");
 
     <script type="text/jscript">
-        $('#Especialidades').change(function () {
+        $('#EspecialidadeFK').change(function () {
             $.ajax({
                 //base address/controller/Action
                 url: '/marcacoes/ListaMedicos/',
                 type: 'GET',
                 data: {
                     //Passing Input parameter
-                    id: $('#Especialidades').val()
+                    id: $('#EspecialidadeFK').val()
                 },
                 success: function (result) {
                     console.log(result);
