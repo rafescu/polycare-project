@@ -7,12 +7,11 @@
     <div class="row" style="text-align:center">
         <div class="col-md-12">
             <h1>PolyCare Clinic</h1>
-            @*<img src="~/Content/Images/clinica.jpg" height="350" width="700" alt="Polycare Background" />*@
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
                 @if (Model.Count() > 0) {
                     <!-- Indicadores -->
-                    <ol class="carousel-indicators">
+                    <ol class="carousel-indicators" style="margin: 0 auto; display: block;">
                         @for (var x = 0; x < Model.Count(); x++) {
                             if (x == 0) {
                                 <li data-target="#myCarousel" data-slide-to="@x" class="active" style="background-color:#022a50;"></li>
@@ -26,17 +25,21 @@
                     <!-- Contentor dos slides -->
                     <div class="carousel-inner col-md-4 col-md-offset-2" style="margin-top:3%;margin-bottom:3%;">
                         @foreach (var item in Model) {
-                            if (i > 0) {
+                            if (i == 0) {
+                                
                                 <div class="item active" style="width:700px;height:350px">
+                                    <h3>@item.Title</h3>
                                     <img src="~/Content/Images/Carrousel/@item.ImgSource" style="margin: 0 auto; display: block;" alt="@item.Title">
                                 </div>
-                                <p style="color:#0094ff; background-color:rgba(0, 0, 0, 0.4);">@item.Title</p>
+                                @*<p style="color:#0094ff; background-color:rgba(0, 0, 0, 0.4);">@item.Title</p>*@
                             }
                             else {
+                                
                                 <div class="item" style="width:700px;height:350px">
-                                    <img src="~/Content/Images/Carrousel/@item.ImgSource" style="margin: 0 auto; display: block;" alt="@item.Title">                                
+                                    <h3>@item.Title</h3>
+                                    <img src="~/Content/Images/Carrousel/@item.ImgSource" style="margin: 0 auto; display: block;" alt="@item.Title">
                                 </div>
-                                <p style="color:#0094ff; background-color:rgba(0, 0, 0, 0.4);"> @item.Title </p>
+                                @*<p style="color:#0094ff; background-color:rgba(0, 0, 0, 0.4);"> @item.Title </p>*@
                             }
                             i++;
                         }

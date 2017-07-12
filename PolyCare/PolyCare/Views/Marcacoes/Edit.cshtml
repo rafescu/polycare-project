@@ -20,6 +20,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DataMarcacoes, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <span class="glyphicon glyphicon-calendar"></span>
                 @Html.EditorFor(model => model.DataMarcacoes, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DataMarcacoes, "", new { @class = "text-danger" })
             </div>
@@ -28,14 +29,16 @@
         <div class="form-group">
             @Html.LabelFor(model => model.MedicoFK, "Médico", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <span class="glyphicon glyphicon-user"></span>
                 @Html.DropDownList("MedicoFK", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.MedicoFK, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PacienteFK, "PacienteFK", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PacienteFK, "Paciente", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <span class="glyphicon glyphicon-user"></span>
                 @Html.DropDownList("PacienteFK", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.PacienteFK, "", new { @class = "text-danger" })
             </div>
@@ -43,14 +46,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Guardar" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar", "Index")
 </div>
 
 @section Scripts {

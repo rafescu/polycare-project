@@ -21,23 +21,44 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Página Inicial", "Index", "Home")</li>
                     <li>@Html.ActionLink("Sobre", "About", "Home")</li>
                     <li>@Html.ActionLink("Contactos", "Contact", "Home")</li>
                
                     @if (User.IsInRole("Funcionario") || User.IsInRole("Administrador")) {
-                            <li>@Html.ActionLink("Pacientes", "Index", "pacientes")</li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Pacientes
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Criar Paciente", "Create", "pacientes")</li>
+                                    <li>@Html.ActionLink("Listar Pacientes", "Index", "pacientes")</li>
+                                </ul>
+                            </li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                     Médicos
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li>@Html.ActionLink("Listar", "Index", "medicos")</li>
-                                    <li>@Html.ActionLink("Especialidades", "Index", "especialidades")</li>
+                                    <li>@Html.ActionLink("Criar Médico", "RegisterMedico", "medicos")</li>
+                                    <li>@Html.ActionLink("Listar Médicos", "Index", "medicos")</li>
+                                    <li>@Html.ActionLink("Criar Especialidade", "Create", "especialidades")</li>
+                                    <li>@Html.ActionLink("Listar Especialidades", "Index", "especialidades")</li>
                                 </ul>
                             </li>
                             <li>@Html.ActionLink("Marcações", "Index", "marcacoes")</li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Imagens
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Submeter nova imagem", "AddImage", "carrousels")</li>
+                                    <li>@Html.ActionLink("Listar Imagens", "Index", "carrousels")</li>
+                                </ul>
+                            </li>
                     }
                     @if (User.IsInRole("Medico")) {
                         <li class="dropdown">
@@ -60,7 +81,6 @@
                             <ul class="dropdown-menu">
                                 <li>@Html.ActionLink("Criar", "Create", "marcacoes")</li>
                                 <li>@Html.ActionLink("Consultar", "Index", "marcacoes")</li>
-                                <li>@Html.ActionLink("Cancelar", "Index", "marcacoes")</li>
                             </ul>
                         </li>
                     }

@@ -257,12 +257,14 @@
     <Content Include="Content\flatly.bootstrap.css" />
     <Content Include="Content\flatly.bootstrap.min.css" />
     <Content Include="Content\Images\acupuntura.jpg" />
+    <Content Include="Content\Images\bannerSobre.png" />
     <Content Include="Content\Images\clinica.jpg" />
     <Content Include="Content\Images\clinica2.jpg" />
     <Content Include="Content\Images\clinica3.jpg" />
     <Content Include="Content\Images\consulta.jpg" />
     <Content Include="Content\Images\dentista.png" />
     <Content Include="Content\Images\fisioterapia.jpg" />
+    <Content Include="Content\Images\map.png" />
     <Content Include="Content\Images\otorrino.jpg" />
     <Content Include="Content\Images\psicologia.jpg" />
     <Content Include="Content\Images\terapia.jpg" />

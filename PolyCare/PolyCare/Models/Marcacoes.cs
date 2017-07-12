@@ -23,6 +23,7 @@ namespace PolyCare.Models {
 
         // definição da chave forasteira (FK) que referencia a classe Pacientes
         [ForeignKey("Paciente")]
+        [Display(Name = "Paciente")]
         public int PacienteFK { get; set; }
         public virtual Pacientes Paciente { get; set; }
 

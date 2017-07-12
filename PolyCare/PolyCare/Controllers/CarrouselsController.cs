@@ -15,18 +15,30 @@ namespace PolyCare.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        /// <summary>
+        /// retorna a extensão de um ficheiro
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public string GetExtensao(string fileName) {
             fileName = fileName.Substring(fileName.LastIndexOf("/") + 1);
             return "." + fileName;
         }
 
+        /// <summary>
+        /// index das imagens
+        /// </summary>
+        /// <returns></returns>
         // GET: Carrousels
         public ActionResult Index()
         {
             return View(db.Carrousels.ToList());
         }
 
-
+        /// <summary>
+        /// adicionar uma nova imagem ao Carrousel
+        /// </summary>
+        /// <returns></returns>
         // GET: Carrousels/Create
         public ActionResult AddImage()
         {
@@ -40,22 +52,40 @@ namespace PolyCare.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddImage([Bind(Include = "ID,IdFuncionario,TimeStamp,Title,ImgSource")] Carrousel carrousel, HttpPostedFileBase file)
         {
+            //array com os diferentes tipos possíveis de extensões
             string[] extensions = new string[] { "jpeg", "jpg", "bmp", "png"};
+
             try {
+                //atribui o id à nova imagem (calculado através da lista das existentes + 1)
                 int ImageId = db.Carrousels.ToList().Count + 1;
+
+                //atribui o carrousel ID com o ImageId anteriormente calculado
                 carrousel.ID = ImageId;
+
+                //atribui a data e hora da inserção da imagem
                 carrousel.TimeStamp = DateTime.Now;
+
+                //atribui o IdFuncionario da imagem ao id do utilizador autenticado
                 carrousel.IdFuncionario = User.Identity.GetUserId();
                
                 if (ModelState.IsValid) {
 
+                    //se o ficheiro introduzido não for nulo
                     if(file != null) {
+                        //verifica se o tipo de ficheiro coincide com os tipos de ficheiros possíveis
                         if (extensions.Contains(file.ContentType.Substring(file.ContentType.LastIndexOf("/") + 1))) {
-                            string nome = ImageId + GetExtensao(file.ContentType);
-                            string path = Server.MapPath("~/Content/Images/Carrousel") + "\\" + nome;
-                            file.SaveAs(path);
-                            carrousel.ImgSource = nome;
 
+                            //endereço da imagem
+                            string endereco = ImageId + GetExtensao(file.ContentType);
+
+                            //caminho da imagem
+                            string path = Server.MapPath("~/Content/Images/Carrousel") + "\\" + endereco;
+                            file.SaveAs(path);
+
+                            //atribui o endereço
+                            carrousel.ImgSource = endereco;
+
+                            //adiciona
                             db.Carrousels.Add(carrousel);
                             db.SaveChanges();
                             return RedirectToAction("Index");
@@ -63,7 +93,7 @@ namespace PolyCare.Controllers
                         // file.ContentType nao e suportado
                         return View(carrousel);
                     }
-                    //imagem nao foi carregada
+                    //se chegar aqui, significa que a imagem não foi carregada
                     return View(carrousel);
                 }
             } catch (Exception) {
@@ -74,6 +104,10 @@ namespace PolyCare.Controllers
             return View(carrousel);
         }
 
+        /// <summary>
+        /// edita uma imagem do carrousel
+        /// </summary>
+        /// <returns></returns>
         // GET: Carrousels/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -105,6 +139,10 @@ namespace PolyCare.Controllers
             return View(carrousel);
         }
 
+        /// <summary>
+        /// apaga uma imagem do Carrousel
+        /// </summary>
+        /// <returns></returns>
         // GET: Carrousels/Delete/5
         public ActionResult Delete(int? id)
         {

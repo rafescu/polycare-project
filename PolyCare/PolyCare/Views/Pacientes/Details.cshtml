@@ -4,13 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalhes</h2>
 
 <div>
     <h4>Pacientes</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            <span class="glyphicon glyphicon-user"></span>
             @Html.DisplayNameFor(model => model.Nome)
         </dt>
 
@@ -19,6 +20,7 @@
         </dd>
 
         <dt>
+            <span class="glyphicon glyphicon-calendar"></span>
             @Html.DisplayNameFor(model => model.DataNascimento)
         </dt>
 
@@ -27,6 +29,7 @@
         </dd>
 
         <dt>
+            <span class="glyphicon glyphicon-heart"></span>
             @Html.DisplayNameFor(model => model.Sexo)
         </dt>
 
@@ -35,6 +38,7 @@
         </dd>
 
         <dt>
+            <span class="glyphicon glyphicon-piggy-bank"></span>
             @Html.DisplayNameFor(model => model.NIF)
         </dt>
 
@@ -45,6 +49,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PacienteID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.PacienteID }) |
+    @Html.ActionLink("Voltar", "Index")
 </p>

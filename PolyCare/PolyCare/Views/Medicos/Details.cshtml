@@ -10,15 +10,16 @@
     <h4>Médicos</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.Especialidade.Designacao)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Especialidade.Designacao)
-        </dd>
+        </dd>*@
 
         <dt>
+            <span class="glyphicon glyphicon-user"></span>
             @Html.DisplayNameFor(model => model.Nome)
         </dt>
 
@@ -27,6 +28,7 @@
         </dd>
 
         <dt>
+            <span class="glyphicon glyphicon-calendar"></span>
             @Html.DisplayNameFor(model => model.DataNascimento)
         </dt>
 
@@ -35,6 +37,7 @@
         </dd>
 
         <dt>
+            <span class="glyphicon glyphicon-piggy-bank"></span>
             @Html.DisplayNameFor(model => model.NIF)
         </dt>
 
@@ -43,6 +46,7 @@
         </dd>
 
         <dt>
+            <span class="glyphicon glyphicon-calendar"></span>
             @Html.DisplayNameFor(model => model.DataEntradaClinica)
         </dt>
 
@@ -51,6 +55,7 @@
         </dd>
 
         <dt>
+            <span class="glyphicon glyphicon-pencil"></span>
             @Html.DisplayNameFor(model => model.NumCedulaProf)
         </dt>
 
@@ -59,6 +64,7 @@
         </dd>
 
         <dt>
+            <span class="glyphicon glyphicon-calendar"></span>
             @Html.DisplayNameFor(model => model.DataInscOrdem)
         </dt>
 
@@ -67,6 +73,7 @@
         </dd>
 
         <dt>
+            <span class="glyphicon glyphicon-pencil"></span>
             @Html.DisplayNameFor(model => model.Faculdade)
         </dt>
 

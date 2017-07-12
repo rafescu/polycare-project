@@ -15,6 +15,10 @@ namespace PolyCare.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        /// <summary>
+        /// index dos pacientes
+        /// </summary>
+        /// <returns></returns>
         // GET: Pacientes
         public ActionResult Index()
         {
@@ -29,6 +33,10 @@ namespace PolyCare.Controllers
             return new HttpUnauthorizedResult("Unauthorized");
         }
 
+        /// <summary>
+        /// detalhes de um paciente
+        /// </summary>
+        /// <returns></returns>
         // GET: Pacientes/Details/5
         public ActionResult Details(int? id)
         {
@@ -44,6 +52,10 @@ namespace PolyCare.Controllers
             return View(pacientes);
         }
 
+        /// <summary>
+        /// cria um paciente
+        /// </summary>
+        /// <returns></returns>
         // GET: Pacientes/Create
         public ActionResult Create()
         {
@@ -89,6 +101,10 @@ namespace PolyCare.Controllers
             return View(pacientes);
         }
 
+        /// <summary>
+        /// edita um paciente
+        /// </summary>
+        /// <returns></returns>
         // GET: Pacientes/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -120,6 +136,10 @@ namespace PolyCare.Controllers
             return View(pacientes);
         }
 
+        /// <summary>
+        /// apaga um paciente
+        /// </summary>
+        /// <returns></returns>
         // GET: Pacientes/Delete/5
         public ActionResult Delete(int? id)
         {

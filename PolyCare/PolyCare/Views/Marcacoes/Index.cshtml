@@ -39,9 +39,11 @@
         </td>
         <td>
             
-            @Html.ActionLink("Editar", "Edit", new { id = item.MarcacaoID }) |
-	        @Html.ActionLink("Detalhes", "Details", new { id = item.MarcacaoID }) |
+            @*@Html.ActionLink("Editar", "Edit", new { id = item.MarcacaoID }) |*@
+            @Html.ActionLink("Detalhes", "Details", new { id = item.MarcacaoID }) |
             @Html.ActionLink("Cancelar", "Delete", new { id = item.MarcacaoID })
+            
+            
 	       
             
         </td>

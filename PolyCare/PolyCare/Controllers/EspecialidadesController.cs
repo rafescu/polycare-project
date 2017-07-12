@@ -14,12 +14,20 @@ namespace PolyCare.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        /// <summary>
+        /// index das especialidades
+        /// </summary>
+        /// <returns></returns>
         // GET: Especialidades
         public ActionResult Index()
         {
             return View(db.Especialidades.ToList());
         }
 
+        /// <summary>
+        /// detalhes de uma especialidade
+        /// </summary>
+        /// <returns></returns>
         // GET: Especialidades/Details/5
         public ActionResult Details(int? id)
         {
@@ -35,6 +43,10 @@ namespace PolyCare.Controllers
             return View(especialidades);
         }
 
+        /// <summary>
+        /// criar uma nova especialidade
+        /// </summary>
+        /// <returns></returns>
         // GET: Especialidades/Create
         public ActionResult Create()
         {
@@ -50,6 +62,7 @@ namespace PolyCare.Controllers
         {
             if (ModelState.IsValid)
             {
+                //adiciona uma nova especialidade à tabela das Especialidades
                 db.Especialidades.Add(especialidades);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -58,6 +71,10 @@ namespace PolyCare.Controllers
             return View(especialidades);
         }
 
+        /// <summary>
+        /// edita uma especialidade
+        /// </summary>
+        /// <returns></returns>
         // GET: Especialidades/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -89,6 +106,10 @@ namespace PolyCare.Controllers
             return View(especialidades);
         }
 
+        /// <summary>
+        /// apaga uma especialidade
+        /// </summary>
+        /// <returns></returns>
         // GET: Especialidades/Delete/5
         public ActionResult Delete(int? id)
         {

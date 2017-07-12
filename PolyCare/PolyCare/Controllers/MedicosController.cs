@@ -27,10 +27,14 @@ namespace PolyCare.Controllers {
 
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        /// <summary>
+        /// index dos médicos
+        /// </summary>
+        /// <returns></returns>
         // GET: Medicos
         public ActionResult Index() {
             if (User.IsInRole("Funcionario") || User.IsInRole("Administrador")) {
-                var medicos = db.Medicos.ToList();//.Include(m => m.Especialidade);
+                var medicos = db.Medicos.ToList();
 
                 return View(medicos);
             }
@@ -42,6 +46,10 @@ namespace PolyCare.Controllers {
             return new HttpUnauthorizedResult("Unauthorized");
         }
 
+        /// <summary>
+        /// detalhes de um médico
+        /// </summary>
+        /// <returns></returns>
         // GET: Medicos/Details/5
         public ActionResult Details(int? id) {
             if (id == null) {
@@ -109,18 +117,18 @@ namespace PolyCare.Controllers {
 
         //  [AllowAnonymous]
 
-
+        /// <summary>
+        /// método para registar um médico
+        /// </summary>
+        /// <returns></returns>
         public ActionResult RegisterMedico() {
 
             Medicos medico = new Medicos();
 
             //lista é uma List<Especialidades>
             ViewBag.lista = db.Especialidades.ToList();
-
-
             return View(medico);
         }
-
         
         // POST: /Account/Register
         [HttpPost]
@@ -140,8 +148,6 @@ namespace PolyCare.Controllers {
             }
 
             if (Checked == null) {
-                
-
                 ModelState.AddModelError("", string.Format("Por favor, selecione uma especialidade..."));
                 return View(model);
             }
@@ -162,12 +168,11 @@ namespace PolyCare.Controllers {
                     medico.Nome = model.Nome;
                     medico.DataNascimento = model.DataNascimento;
                     medico.Sexo = model.Sexo;
-
+                    medico.EspecialidadesDoMedico = model.EspecialidadesDoMedico;
                     foreach (var item in Checked) {
                         var idEsp = Convert.ToInt16(item);
                         medico.EspecialidadesDoMedico.Add(db.Especialidades.Select(x=>x).Where(x=>x.EspecialidadeID==idEsp).FirstOrDefault());
                     }
-                    
                     //Explicação do Professor
                     ////  medico.EspecialidadeFK = model.EspecialidadeFK;
                     //// * para resolver este problema, 
@@ -181,8 +186,7 @@ namespace PolyCare.Controllers {
                     ////      - atribuir essa lista ao objeto 'medico'
                     ////              medico.EspecialidadesDoMedico = listaDeEspecialidades;
                     ////   */
-
-
+                    
                     medico.NIF = model.NIF;
                     medico.DataEntradaClinica = model.DataEntradaClinica;
                     medico.NumCedulaProf = model.NumCedulaProf;
@@ -211,7 +215,11 @@ namespace PolyCare.Controllers {
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-        //determina o id do novo médico
+        
+        /// <summary>
+        /// determina o id do novo médico
+        /// </summary>
+        /// <returns></returns>
         private int determinaNovoIdMedico() {
 
             ApplicationDbContext db = new ApplicationDbContext();
@@ -228,7 +236,10 @@ namespace PolyCare.Controllers {
             return novoID;
         }
 
-
+        /// <summary>
+        /// edita um médico
+        /// </summary>
+        /// <returns></returns>
         // GET: Medicos/Edit/5
         public ActionResult Edit(int? id) {
             if (id == null) {
@@ -238,7 +249,7 @@ namespace PolyCare.Controllers {
             if (medicos == null) {
                 return HttpNotFound();
             }
-            ViewBag.EspecialidadeFK = new SelectList(db.Especialidades, "EspecialidadeID", "Designacao"); //, medicos.EspecialidadeFK);
+            ViewBag.EspecialidadeFK = new SelectList(db.Especialidades, "EspecialidadeID", "Designacao"); 
             return View(medicos);
         }
 
@@ -253,10 +264,14 @@ namespace PolyCare.Controllers {
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.EspecialidadeFK = new SelectList(db.Especialidades, "EspecialidadeID", "Designacao"); // , medicos.EspecialidadeFK);
+            ViewBag.EspecialidadeFK = new SelectList(db.Especialidades, "EspecialidadeID", "Designacao"); 
             return View(medicos);
         }
 
+        /// <summary>
+        /// apaga o médico
+        /// </summary>
+        /// <returns></returns>
         // GET: Medicos/Delete/5
         public ActionResult Delete(int? id) {
             if (id == null) {
@@ -280,9 +295,6 @@ namespace PolyCare.Controllers {
                 db.SaveChanges();
                 return RedirectToAction("Index");
             } catch (Exception) {
-                //ModelState.AddModelError("", string.Format("Ocorreu um erro na eliminação do Médico com ID={0}-{1}, por favor verifique se esse Médico não possui nenhum consulta marcada (se tiver, elimine-a primeiro...)", id, medicos.Nome));
-                //var ex = "Ocorreu um erro na eliminação do Médico com ID={0}-{1}, por favor verifique se esse Médico não possui nenhum consulta marcada (se tiver, elimine-a primeiro...)";
-                //Response.Write("<script language='javascript'>alert('" +ex+ "')</script>");
                 TempData["notice"] = "Ocorreu um erro na eliminação do Médico, por favor verifique se esse Médico não possui nenhuma consulta marcada (se tiver, elimine-a primeiro...)";
                 return View(medicos);
             }

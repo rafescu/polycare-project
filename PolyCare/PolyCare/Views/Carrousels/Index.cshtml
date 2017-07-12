@@ -4,13 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Imagens no carrousel</h2>
+<h2>Imagens na Página Inicial</h2>
 
-<p>
-    @Html.ActionLink("Adicionar Imagem", "AddImage")
-</p>
 @if (Model.Count() == 0) {
-    <p>Sem imagens no carrousel.</p>
+    <p>Sem imagens.</p>
 }
     
 @foreach (var item in Model) {
@@ -33,7 +30,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="row">
-                                        Inserido: @item.TimeStamp.ToLocalTime()
+                                        Inserido: @item.TimeStamp
                                     </div>
                                     <div class="row">
                                         @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "label label-warning" })

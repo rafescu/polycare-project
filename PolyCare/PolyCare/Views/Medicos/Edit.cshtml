@@ -20,6 +20,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <span class="glyphicon glyphicon-user"></span>
                 @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
             </div>
@@ -28,15 +29,15 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <span class="glyphicon glyphicon-calendar"></span>
                 @Html.EditorFor(model => model.DataNascimento, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        @*Fiquei aqui neste div para alterar as especialidades do médico, pois ele agora pode ter mais do que uma especialidade*@
         <div class="form-group">
             @Html.LabelFor(model => model.EspecialidadesDoMedico, "Especialidade", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <span class="glyphicon glyphicon-star"></span>
                 @Html.DropDownList("EspecialidadeFK", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.EspecialidadesDoMedico, "", new { @class = "text-danger" })
             </div>
@@ -46,6 +47,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NIF, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <span class="glyphicon glyphicon-piggy-bank"></span>
                 @Html.EditorFor(model => model.NIF, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NIF, "", new { @class = "text-danger" })
             </div>
@@ -54,6 +56,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DataEntradaClinica, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <span class="glyphicon glyphicon-calendar"></span>
                 @Html.EditorFor(model => model.DataEntradaClinica, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DataEntradaClinica, "", new { @class = "text-danger" })
             </div>
@@ -62,6 +65,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NumCedulaProf, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <span class="glyphicon glyphicon-pencil"></span>
                 @Html.EditorFor(model => model.NumCedulaProf, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NumCedulaProf, "", new { @class = "text-danger" })
             </div>
@@ -70,6 +74,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DataInscOrdem, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <span class="glyphicon glyphicon-calendar"></span>
                 @Html.EditorFor(model => model.DataInscOrdem, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DataInscOrdem, "", new { @class = "text-danger" })
             </div>
@@ -78,6 +83,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Faculdade, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <span class="glyphicon glyphicon-pencil"></span>
                 @Html.EditorFor(model => model.Faculdade, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Faculdade, "", new { @class = "text-danger" })
             </div>

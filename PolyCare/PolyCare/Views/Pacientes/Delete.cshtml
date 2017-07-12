@@ -4,15 +4,16 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Apagar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem a certeza que pretende apagar este paciente?</h3>
 <div>
     <h4>Pacientes</h4>
     <hr />
     <dl class="dl-horizontal">
         
         <dt>
+            <span class="glyphicon glyphicon-user"></span>
             @Html.DisplayNameFor(model => model.Nome)
         </dt>
 
@@ -21,6 +22,7 @@
         </dd>
 
         <dt>
+            <span class="glyphicon glyphicon-calendar"></span>
             @Html.DisplayNameFor(model => model.DataNascimento)
         </dt>
 
@@ -29,6 +31,7 @@
         </dd>
 
         <dt>
+            <span class="glyphicon glyphicon-heart"></span>
             @Html.DisplayNameFor(model => model.Sexo)
         </dt>
 
@@ -37,6 +40,7 @@
         </dd>
 
         <dt>
+            <span class="glyphicon glyphicon-piggy-bank"></span>
             @Html.DisplayNameFor(model => model.NIF)
         </dt>
 
@@ -50,8 +54,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Apagar" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
         </div>
     }
 </div>

@@ -9,7 +9,7 @@ namespace PolyCare.Controllers {
     public class HomeController : Controller {
         private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index() {
-
+            //carrega as imagens provenientes do Carrousels para a Página Inicial
             var imagens = db.Carrousels.ToList();
             return View(imagens);
         }
