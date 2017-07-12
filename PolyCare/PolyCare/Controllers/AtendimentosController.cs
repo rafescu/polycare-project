@@ -10,6 +10,7 @@ using PolyCare.Models;
 
 namespace PolyCare.Controllers
 {
+    [Authorize(Roles = "Funcionario")]
     public class AtendimentosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

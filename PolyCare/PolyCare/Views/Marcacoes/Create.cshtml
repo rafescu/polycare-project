@@ -6,7 +6,9 @@
 }
 
 <h2>Criar nova consulta</h2>
-
+@if (TempData["notice"] != null) {
+    <p class="alert-danger">@TempData["notice"]</p>
+}
 
 @using (Html.BeginForm()) 
 {
@@ -42,6 +44,7 @@
                 <span class="glyphicon glyphicon-user"></span>
                 @Html.DropDownList("MedicoFK", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.MedicoFK, "", new { @class = "text-danger" })
+                
             </div>
         </div>
 
@@ -60,6 +63,7 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval");
 
+    @*Neste ajax, estamos a modificar a lista de médicos presentes no dropdown dos médicos, dependendo da especialidade escolhida*@
     <script type="text/jscript">
         $('#EspecialidadeFK').change(function () {
             $.ajax({
@@ -67,7 +71,7 @@
                 url: '/marcacoes/ListaMedicos/',
                 type: 'GET',
                 data: {
-                    //Passing Input parameter
+                    //Parâmetro de input
                     id: $('#EspecialidadeFK').val()
                 },
                 success: function (result) {

@@ -267,6 +267,7 @@
     <Content Include="Content\Images\map.png" />
     <Content Include="Content\Images\otorrino.jpg" />
     <Content Include="Content\Images\psicologia.jpg" />
+    <Content Include="Content\Images\RafaelEscudeiro.jpg" />
     <Content Include="Content\Images\terapia.jpg" />
     <Content Include="Content\one-page-wonder.css" />
     <Content Include="favicon.ico" />

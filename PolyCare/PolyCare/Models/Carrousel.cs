@@ -12,7 +12,9 @@ namespace PolyCare.Models {
         //id do Funcionário que insere a imagem
         public string IdFuncionario { get; set; }
 
+
         //data e hora da inserção da imagem
+        [Display(Name = "Data|Hora de Inserção")]
         public DateTime TimeStamp { get; set; }
 
         //título da imagem
@@ -22,7 +24,7 @@ namespace PolyCare.Models {
         public string Title { get; set; }
 
         //endereço da imagem
-        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
+        [Display(Name = "Nome da Imagem")]
         public string ImgSource { get; set; }
     }
 }

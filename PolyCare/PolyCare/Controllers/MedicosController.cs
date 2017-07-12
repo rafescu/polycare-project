@@ -32,6 +32,7 @@ namespace PolyCare.Controllers {
         /// </summary>
         /// <returns></returns>
         // GET: Medicos
+        [Authorize(Roles = "Medico,Funcionario,Administrador")]
         public ActionResult Index() {
             if (User.IsInRole("Funcionario") || User.IsInRole("Administrador")) {
                 var medicos = db.Medicos.ToList();
@@ -42,8 +43,7 @@ namespace PolyCare.Controllers {
                 //se chegar aqui, significa que é um médico
                 return View(db.Medicos.Where(m => m.Username.Equals(User.Identity.Name)).ToList());
             }
-            //se chegar aqui, significa que é um paciente
-            return new HttpUnauthorizedResult("Unauthorized");
+            return View();
         }
 
         /// <summary>
@@ -121,6 +121,7 @@ namespace PolyCare.Controllers {
         /// método para registar um médico
         /// </summary>
         /// <returns></returns>
+        [Authorize(Roles = "Funcionario,Administrador")]
         public ActionResult RegisterMedico() {
 
             Medicos medico = new Medicos();
@@ -215,11 +216,12 @@ namespace PolyCare.Controllers {
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-        
+
         /// <summary>
         /// determina o id do novo médico
         /// </summary>
         /// <returns></returns>
+        [Authorize(Roles = "Funcionario,Administrador")]
         private int determinaNovoIdMedico() {
 
             ApplicationDbContext db = new ApplicationDbContext();
@@ -273,6 +275,7 @@ namespace PolyCare.Controllers {
         /// </summary>
         /// <returns></returns>
         // GET: Medicos/Delete/5
+        [Authorize(Roles = "Funcionario,Administrador")]
         public ActionResult Delete(int? id) {
             if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

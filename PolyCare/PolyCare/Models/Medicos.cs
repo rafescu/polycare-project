@@ -8,11 +8,6 @@ using System.Web;
 namespace PolyCare.Models {
     public class Medicos {
 
-        /*
-         - retirar a especialidade + espcialidadeFK
-         - atribuir especialidade 'a marcacao
-         - usar externalID ou username. Apenas um dos dois...    
-             */
 
         public Medicos() {
             Marcacoes = new HashSet<Marcacoes>();

@@ -22,6 +22,7 @@ namespace PolyCare.Models {
         [Display(Name = "Especialidade")]
         public string Designacao { get; set; } //nome da especialidade
 
+        //atributo que é excluído do mapeamento da base de dados
         [NotMapped]
         public bool Checked { get; set; }
 
@@ -32,10 +33,4 @@ namespace PolyCare.Models {
         //#########################################################################
     }
 
-    public class EspecialidadesViewModel {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public bool Checked { get; set; }
-
-    }
 }

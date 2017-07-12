@@ -10,7 +10,7 @@ using PolyCare.Models;
 
 namespace PolyCare.Controllers
 {
-    [Authorize]//força a que só utilizadores AUTENTICADOS consigam aceder aos métodos desta classe (aplica-se a todos os métodos)
+    [Authorize(Roles ="Paciente, Funcionario, Administrador")]//força a que só utilizadores Pacientes, Funcionarios ou Administradores consigam aceder aos métodos desta classe (aplica-se a todos os métodos)
     public class PacientesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -20,6 +20,7 @@ namespace PolyCare.Controllers
         /// </summary>
         /// <returns></returns>
         // GET: Pacientes
+        [Authorize(Roles = "Funcionario,Administrador,Paciente")]
         public ActionResult Index()
         {
             if (User.IsInRole("Funcionario") || User.IsInRole("Administrador")) {
@@ -29,8 +30,8 @@ namespace PolyCare.Controllers
                 //se chegar aqui, significa que é um paciente
                 return View(db.Pacientes.Where(p => p.Username.Equals(User.Identity.Name)).ToList());
             }
-            //se chegar aqui, significa que é um médico
-            return new HttpUnauthorizedResult("Unauthorized");
+            
+            return View();
         }
 
         /// <summary>
@@ -106,6 +107,7 @@ namespace PolyCare.Controllers
         /// </summary>
         /// <returns></returns>
         // GET: Pacientes/Edit/5
+        [Authorize(Roles = "Funcionario,Administrador")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -141,6 +143,7 @@ namespace PolyCare.Controllers
         /// </summary>
         /// <returns></returns>
         // GET: Pacientes/Delete/5
+        [Authorize(Roles = "Funcionario,Administrador")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

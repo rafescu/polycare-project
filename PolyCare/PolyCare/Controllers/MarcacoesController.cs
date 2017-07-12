@@ -10,6 +10,8 @@ using PolyCare.Models;
 using Microsoft.AspNet.Identity;
 
 namespace PolyCare.Controllers {
+    [Authorize(Roles = "Funcionario, Medico, Paciente")]
+
     public class MarcacoesController : Controller {
         private ApplicationDbContext db = new ApplicationDbContext();
 
@@ -77,6 +79,7 @@ namespace PolyCare.Controllers {
         /// </summary>
         /// <returns></returns>
         // GET: Marcacoes/Create
+        [Authorize(Roles ="Paciente")]
         public ActionResult Create() {
             ViewBag.EspecialidadeFK = new SelectList(db.Especialidades, "EspecialidadeID", "Designacao");
 
@@ -109,13 +112,20 @@ namespace PolyCare.Controllers {
                 //associa o PacienteFK ao user
                 marcacoes.PacienteFK = user;
 
+                //verifica se está algum médico na dropdown selecionado
+                if (marcacoes.MedicoFK==0) {
+                    TempData["notice"] = "Por favor, selecione um médico válido.";
+                }
+                else {
+                    db.Marcacoes.Add(marcacoes);
+                    db.SaveChanges();
 
-                db.Marcacoes.Add(marcacoes);
-                db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-                return RedirectToAction("Index");
+
             }
-
+            ViewBag.EspecialidadeFK = new SelectList(db.Especialidades, "EspecialidadeID", "Designacao");
             ViewBag.MedicoFK = new SelectList(db.Medicos, "MedicoID", "Nome", marcacoes.MedicoFK);
             ViewBag.PacienteFK = new SelectList(db.Pacientes, "PacienteID", "Nome", marcacoes.PacienteFK);
             return View(marcacoes);
@@ -126,6 +136,7 @@ namespace PolyCare.Controllers {
         /// </summary>
         /// <returns></returns>
         // GET: Marcacoes/Edit/5
+        [Authorize(Roles = "Funcionario")]
         public ActionResult Edit(int? id) {
             if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
